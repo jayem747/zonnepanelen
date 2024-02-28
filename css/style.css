@@ -1,12 +1,82 @@
+/*
+STYLE SECTIONS
+
+- GENERAL SECTION
+- HEADER SECTION
+- MAIN SECTION
+- FOOTER SECTION
+*/
+
+
+/* GENERAL SECTION */
+/*
+CONTENT
+- GENERAL SIZING
+- GENERAL TOPOGRAPHY
+- FREQUENTLY USED CLASSES
+*/
+
+/* GENERAL SIZING */
+
 * {
     margin: 0 auto;
     box-sizing: border-box;
 }
 
+/* GENERAL TOPOGRAPHY */
+
+
+/* FREQUENTLY USED CLASSES */
+
+
+/*-----------------------------------------------------------------------------*/
+
+
+/* HEADER SECTION */
+/*
+CONTENT
+- TOP SIDE
+- BOTTOM SIDE
+*/
+
+
+/* TOP SIDE */
+
 #header_top_layer {
     background-color: #fff3d0;
+    height: 80px;
+    font-size: 30px;
 }
+
+.site_logo {
+    height: 50px;
+    margin-top: calc((80px - 50px) / 2)
+}
+
+i.fa-solid.fa-cart-shopping {
+    font-size: 30px !important;
+}
+
+/* BOTTOM SIDE */
 
 #header_bot_layer {
     background-color: #e9c973;
+    height: 50px;
+    font-size: 24px;
 }
+
+/*-----------------------------------------------------------------------------*/
+
+
+/* MAIN SECTION */
+
+#main_content {
+    margin: 0 90px;
+}
+
+/*-----------------------------------------------------------------------------*/
+
+
+/* FOOTER SECTION */
+
+/*-----------------------------------------------------------------------------*/
