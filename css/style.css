@@ -66,6 +66,10 @@ header {
     z-index: 100;
 }
 
+body {
+    height: 10000000000px;
+}
+
 /* TOP SIDE */
 
 #header_top_layer {
@@ -117,6 +121,7 @@ i.fa-solid.fa-cart-shopping {
 CONTENT
 - INDEX.PHP
 - ADVERTISEMENTS
+- PRODUCT CONTAINER
 */
 
 /* INDEX.PHP */
@@ -143,6 +148,45 @@ CONTENT
     width: 80%;
     background-color: pink;
     height: 150px;
+}
+
+/* PRODUCT CONTAINER */
+#products_grid {
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+
+
+.product_container {
+    width: 80%;
+    background-color: #fff3d0;
+    box-shadow: 10px 15px #637ba0;
+}
+
+.product_container .product_image {
+    background-color: #e9c973;
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 5px;
+}
+
+.product_container h2 {
+    text-align: center;
+}
+
+.product_container p {
+    margin: 10px 5%;
+}
+
+.product_container .view_product_button {
+    background-color: #637ba0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    width: fit-content;
+    padding: 5px;
+    box-shadow: 3px 5px #e9c973;
+    margin: 10px auto;
 }
 
 /*-----------------------------------------------------------------------------*/

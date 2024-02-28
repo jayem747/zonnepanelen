@@ -17,7 +17,24 @@ require_once("php/header.php");
 
     <!-- container of all the products -->
     <section id="products_grid">
-        
+        <section class="product_container">
+            <img src="img/solar_image.png" class="product_image">
+            <h2>basispakket</h2>
+            <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
+            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
+        </section>
+        <section class="product_container">
+            <img src="img/solar_image.png" class="product_image">
+            <h2>basispakket</h2>
+            <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
+            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
+        </section>
+        <section class="product_container">
+            <img src="img/solar_image.png" class="product_image">
+            <h2>basispakket</h2>
+            <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
+            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
+        </section>
     </section>
 </div>
 <?php
