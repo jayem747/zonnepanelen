@@ -1,0 +1,12 @@
+* {
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+#header_top_layer {
+    background-color: #fff3d0;
+}
+
+#header_bot_layer {
+    background-color: #e9c973;
+}
