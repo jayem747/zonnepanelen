@@ -21,13 +21,31 @@ CONTENT
 * {
     margin: 0 auto;
     box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+#main_content {
+    margin: 0 90px;
+    margin-top: calc(80px + 50px)
 }
 
 /* GENERAL TOPOGRAPHY */
 
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+.blue_top_text {
+    font-size: 56px;
+    color: #637ba0;
+    text-align: center;
+}
 
 /* FREQUENTLY USED CLASSES */
-
+.divider_50px {
+    height: 50px;
+}
 
 /*-----------------------------------------------------------------------------*/
 
@@ -35,10 +53,18 @@ CONTENT
 /* HEADER SECTION */
 /*
 CONTENT
+- WHOLE HEADER
 - TOP SIDE
 - BOTTOM SIDE
 */
 
+/* WHOLE HEADER */
+header {
+    position: fixed;
+    width: 100vw;
+    top: 0;
+    z-index: 100;
+}
 
 /* TOP SIDE */
 
@@ -46,11 +72,26 @@ CONTENT
     background-color: #fff3d0;
     height: 80px;
     font-size: 30px;
+    display: flex;
+    align-items: center;
+    padding: 0 50px;
+}
+
+.header_left_side {
+    margin-left: 0px;
 }
 
 .site_logo {
     height: 50px;
-    margin-top: calc((80px - 50px) / 2)
+}
+
+.header_right_side {
+    margin-right: 0;
+}
+
+.header_right_side a:nth-of-type(1),
+.header_right_side a:nth-of-type(2) {
+    padding-right: 25px;
 }
 
 i.fa-solid.fa-cart-shopping {
@@ -63,15 +104,45 @@ i.fa-solid.fa-cart-shopping {
     background-color: #e9c973;
     height: 50px;
     font-size: 24px;
+    display: flex;
+    padding: 0 20%;
+    align-items: center;
 }
 
 /*-----------------------------------------------------------------------------*/
 
 
 /* MAIN SECTION */
+/*
+CONTENT
+- INDEX.PHP
+- ADVERTISEMENTS
+*/
 
-#main_content {
-    margin: 0 90px;
+/* INDEX.PHP */
+
+.welcome {
+    width: 100vw;
+    background-color: #fff3d0;
+    text-align: center;
+    height: 300px;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-90px);
+}
+
+.welcome h1 {
+    font-size: 40px;
+}
+
+/* ADVERTISEMENTS */
+
+.horizontal_ad {
+    width: 80%;
+    background-color: pink;
+    height: 150px;
 }
 
 /*-----------------------------------------------------------------------------*/

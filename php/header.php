@@ -8,10 +8,14 @@
     </head>
     <header>
         <div id="header_top_layer">
-            <a href="index.php"><img src="img/logo.png" alt="site_logo" class="site_logo"></a>
-            <a href="#">login</a>
-            <a href="#">registreer</a>
-            <a href="cart.php" class="shopping_cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            <section class="header_left_side">
+                <a href="index.php"><img src="img/logo.png" alt="site_logo" class="site_logo"></a>
+            </section>
+            <section class="header_right_side">
+                <a href="#">login</a>
+                <a href="#">registreer</a>
+                <a href="cart.php" class="shopping_cart"><i class="fa-solid fa-cart-shopping"></i></a>
+            </section>
         </div>
         <div id="header_bot_layer">
             <a href="#">offerte</a>
