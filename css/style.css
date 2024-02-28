@@ -150,6 +150,7 @@ CONTENT
     height: 150px;
 }
 
+
 /* PRODUCT CONTAINER */
 #products_grid {
     display: grid;
@@ -163,11 +164,18 @@ CONTENT
     box-shadow: 10px 15px #637ba0;
 }
 
-.product_container .product_image {
+
+.product_container .color_product_image {
     background-color: #e9c973;
     width: 80%;
-    margin-left: 10%;
-    margin-top: 5px;
+    margin: 10px auto;
+}
+
+.product_container .product_image {
+    background-color: #e9c973;
+    padding: 5px;
+    width: 90%;
+
 }
 
 .product_container h2 {
@@ -175,6 +183,7 @@ CONTENT
 }
 
 .product_container p {
+    height: 150px;
     margin: 10px 5%;
 }
 
