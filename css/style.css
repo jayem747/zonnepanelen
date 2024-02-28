@@ -29,6 +29,11 @@ CONTENT
     margin-top: calc(80px + 50px)
 }
 
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 /* GENERAL TOPOGRAPHY */
 
 a {
@@ -129,6 +134,7 @@ CONTENT
 
 .welcome {
     width: 100vw;
+    overflow-x: hidden;
     background-color: #fff3d0;
     text-align: center;
     height: 300px;
@@ -141,6 +147,10 @@ CONTENT
 
 .welcome h1 {
     font-size: 40px;
+}
+
+.solar_intro_text {
+    background-color: #cad8de;
 }
 
 /* ADVERTISEMENTS */

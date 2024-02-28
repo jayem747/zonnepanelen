@@ -42,6 +42,9 @@ require_once("php/header.php");
             <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
         </section>
     </section>
+
+    <section class="divider_50px"><!-- space between products and text --></section>
+    <p class="solar_intro_text">Bij SolarTech geloven we in de kracht van de zon en streven we ernaar om groene energie toegankelijk te maken voor iedereen. Onze hoogwaardige solarpakketten bieden niet alleen een milieuvriendelijke manier om uw energieverbruik te verminderen, maar ook om te besparen op uw energierekening op de lange termijn. Of u nu op zoek bent naar zonne-energiesystemen voor uw huis, bedrijf of gemeenschap, ons deskundige team staat klaar om u te begeleiden bij elke stap van het proces Bij Clearsky Solar geloven we in de kracht van de zon en streven we ernaar om groene energie toegankelijk te maken voor iedereen. Onze hoogwaardige solarpakketten bieden niet alleen een milieuvriendelijke manier om uw energieverbruik te verminderen, maar ook om te besparen op uw energierekening op de lange termijn. Of u nu op zoek bent naar zonne-energiesystemen voor uw huis, bedrijf of gemeenschap, ons deskundige team staat klaar om u te begeleiden bij elke stap van het proces</p>
 </div>
 <?php
 require_once("php/footer.php");
