@@ -3,6 +3,7 @@ STYLE SECTIONS
 
 - GENERAL SECTION
 - HEADER SECTION
+- FOOTER SECTION
 - MAIN SECTION
 - FOOTER SECTION
 */
@@ -119,6 +120,33 @@ i.fa-solid.fa-cart-shopping {
     align-items: center;
 }
 
+
+/*-----------------------------------------------------------------------------*/
+
+/* FOOTER SECTION */
+
+footer {
+    background-color: #fff3d0;
+    display: flex;
+}
+
+footer section {
+    flex: 1;
+    padding: 50px 90px;
+}
+
+footer section h2 {
+    text-align: center;
+}
+
+footer section ul {
+    list-style-type: none;
+}
+
+footer section ul i {
+    margin-right: 5px;
+}
+
 /*-----------------------------------------------------------------------------*/
 
 
@@ -151,6 +179,10 @@ CONTENT
 
 .solar_intro_text {
     background-color: #cad8de;
+    width: 100vw;
+    text-align: center;
+    transform: translateX(-90px);
+    padding: 20px 90px;
 }
 
 /* ADVERTISEMENTS */
