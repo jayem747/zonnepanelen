@@ -5,7 +5,6 @@ STYLE SECTIONS
 - HEADER SECTION
 - FOOTER SECTION
 - MAIN SECTION
-- FOOTER SECTION
 */
 
 
@@ -25,7 +24,7 @@ CONTENT
     font-family: "Segoe UI", sans-serif;
 }
 
-#main_content {
+.main_content {
     margin: 0 90px;
     margin-top: calc(80px + 50px)
 }
@@ -56,6 +55,7 @@ a {
 .divider_150px {
     height: 150px;
 }
+
 
 /*-----------------------------------------------------------------------------*/
 
@@ -198,6 +198,7 @@ CONTENT
 #products_grid {
     display: grid;
     grid-template-columns: auto auto auto;
+    row-gap: 50px;
 }
 
 
@@ -223,6 +224,8 @@ CONTENT
 
 .product_container h2 {
     text-align: center;
+    color: #637ba0;
+    font-size: 30px;
 }
 
 .product_container p {
@@ -241,9 +244,13 @@ CONTENT
     margin: 10px auto;
 }
 
-/*-----------------------------------------------------------------------------*/
-
-
-/* FOOTER SECTION */
+.products_page_link {
+    text-align: center;
+    background-color: #637ba0;
+    box-shadow: 3px 5px #e9c973;
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+}
 
 /*-----------------------------------------------------------------------------*/

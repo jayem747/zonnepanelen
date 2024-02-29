@@ -12,7 +12,7 @@
                 <a href="index.php"><img src="img/logo.png" alt="site_logo" class="site_logo"></a>
             </section>
             <section class="header_right_side">
-                <a href="#">login</a>
+                <a href="login.php">login</a>
                 <a href="#">registreer</a>
                 <a href="cart.php" class="shopping_cart"><i class="fa-solid fa-cart-shopping"></i></a>
             </section>

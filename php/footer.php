@@ -19,13 +19,10 @@
                         <td>helpdesk@clearskysolar.nl</td>
                     </td>
                 </table>
-                <!--ul>
-                    <li><i class="fa-solid fa-phone"></i>06-12345678</li>
-                    <li><i class="fa-solid fa-building"></i>Zonnestraat 20</br>1235 XY, Gouda</li>
-                    <li><i class="fa-solid fa-at"></i>helpdesk@clearskysolar.nl</li>
-                </ul-->
             </section>
         </footer>
         <script src="https://kit.fontawesome.com/74f00c029b.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+        <script src="js/animations.js"></script>
     </body>
 </html>
