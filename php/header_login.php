@@ -14,4 +14,4 @@
             <a href="index.php">Homepage</a>
         </section>
     </header>
-    <body>
+    <body class="login_bg">

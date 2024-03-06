@@ -1,5 +1,10 @@
 <?php
 require_once("php/header.php");
+
+$pdo = pdoObject("clearsky");
+$sql = "SELECT * FROM producten";
+$products = $pdo->prepare($sql);
+$products->execute(array());
 ?>
 
 <div class="main_content">
@@ -17,30 +22,21 @@ require_once("php/header.php");
 
     <!-- container of all the products -->
     <section id="products_grid">
+        <?php
+        foreach($products as $product) {
+            $base64_image = base64_encode($product["Foto"])
+        ?>
         <section class="product_container">
             <section class="color_product_image">
-                <img src="img/solar_image.png" class="product_image">
+                <img src="data:image/jpeg;base64, <?=$base64_image?>" class="product_image">
             </section>
-            <h2>basispakket</h2>
-            <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
-            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
+            <h2><?=$product["Titel"]?></h2>
+            <p><?=$product["KleineOmschrijving"]?></p>
+            <a href="product.php?productID=<?=$product["ProductID"]?>" class="view_product_button">bekijk product</a>
         </section>
-        <section class="product_container">
-            <section class="color_product_image">
-                <img src="img/solar_image.png" class="product_image">
-            </section>
-            <h2>basispakket</h2>
-            <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
-            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
-        </section>
-        <section class="product_container">
-            <section class="color_product_image">
-                <img src="img/solar_image.png" class="product_image">
-            </section>
-            <h2>basispakket</h2>
-            <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
-            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
-        </section>
+        <?php
+        }
+        ?>
         <section><!-- empty section for spacing of button --></section>
         <a href="pakketten.php" class="products_page_link">Zie meer</a>
     </section>

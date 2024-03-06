@@ -207,9 +207,19 @@ CONTENT
     row-gap: 50px;
 }
 
+@media (max-width: 1000px) {
+    #products_grid {
+        grid-template-columns: auto auto;
+    }
+
+    .product_container {
+        width: 80% !important;
+    }
+}
+
 
 .product_container {
-    width: 80%;
+    width: 23vw;
     background-color: #fff3d0;
     box-shadow: 3px 5px #e9c973;
 }
@@ -219,12 +229,14 @@ CONTENT
     background-color: #e9c973;
     width: 80%;
     margin: 10px auto;
+    display: flex;
 }
 
 .product_container .product_image {
     background-color: #e9c973;
     padding: 5px;
-    width: 90%;
+    width: 80%;
+    height: 150px;
 
 }
 
@@ -232,10 +244,11 @@ CONTENT
     text-align: center;
     color: #637ba0;
     font-size: 30px;
+    height: 80px;
 }
 
 .product_container p {
-    height: 150px;
+    height: 100px;
     margin: 10px 5%;
 }
 
@@ -247,7 +260,7 @@ CONTENT
     width: fit-content;
     padding: 5px;
     box-shadow: 3px 5px #e9c973;
-    margin: 10px auto;
+    margin: 30px auto;
 }
 
 .products_page_link {
@@ -256,7 +269,6 @@ CONTENT
     box-shadow: 3px 5px #e9c973;
     color: #fff;
     padding: 10px;
-    border-radius: 5px;
 }
 
 /* PRODUCT PAGE */
@@ -276,6 +288,16 @@ CONTENT
 
 .login_formation {
     display: flex;
+    width: 100vw;
+    transform: translateX(-70px);
+}
+
+.login_bg {
+    position: absolute;
+    background-image: url("../img/login_bg_img.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: -1;
 }
 
 .login_container {
@@ -285,6 +307,7 @@ CONTENT
     border: 1px solid black;
     padding: 15px 0;
     border-radius: 5px;
+    background-color: #fff;
 }
 
 .login_container input[type="text"],
