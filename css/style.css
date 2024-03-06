@@ -287,7 +287,8 @@ CONTENT
     border-radius: 5px;
 }
 
-.login_container input[type="text"] {
+.login_container input[type="text"],
+.login_container input[type="password"]  {
     width: 90%;
     height: 50px;
     background-color: #cad8de;
@@ -297,7 +298,8 @@ CONTENT
     border-radius: 5px;
 }
 
-.login_container input[type="text"]::placeholder {
+.login_container input[type="text"]::placeholder,
+.login_container input[type="password"]::placeholder {
     color: #637ba0;
     font-size: 24px;
 }
