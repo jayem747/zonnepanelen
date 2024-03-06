@@ -13,7 +13,7 @@
             </section>
             <section class="header_right_side">
                 <a href="login.php">login</a>
-                <a href="#">registreer</a>
+                <a href="register.php">registreer</a>
                 <a href="cart.php" class="shopping_cart"><i class="fa-solid fa-cart-shopping"></i></a>
             </section>
         </div>

@@ -283,6 +283,8 @@ CONTENT
     display: flex;
     flex-direction: column;
     border: 1px solid black;
+    padding: 15px 0;
+    border-radius: 5px;
 }
 
 .login_container input[type="text"] {
@@ -300,5 +302,15 @@ CONTENT
     font-size: 24px;
 }
 
+.login_container input[type="submit"] {
+    margin-bottom: 15px;
+    width: 90%;
+    height: 75px;
+    border-radius: 10px;
+    border: none;
+    font-size: 36px;
+    color: #e9c973;
+    background-color: #637ba0;
+}
 
 /*-----------------------------------------------------------------------------*/

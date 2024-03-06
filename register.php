@@ -2,6 +2,7 @@
 require_once("php/header_login.php");
 ?>
 
+    <div class="main_content">
         <div class="main_content">
             <div class="login_formation">
                 <!-- Left ad -->
@@ -11,13 +12,15 @@ require_once("php/header_login.php");
 
                 <!-- middle box -->
                 <form class="login_container" method="post" action="index.php">
-                    <h1 class="blue_top_text">Log in</h1>
+                    <h1 class="blue_top_text">registreer</h1>
                     <section class="divider_50px"><!-- divider --></section>
                     <input type="text" name="name" placeholder="Gebruikersnaam">
+                    <input type="text" name="email" placeholder="Email">
                     <input type="text" name="password" placeholder="wachtwoord">
-                    <input type="submit" name="login" value="Log in">
-                    <a href="forgot_password.php">Wachtwoord vergeten?</a>
-                    <a href="register.php">Geen account? Registreer hier</a>
+                    <input type="text" name="address" placeholder="adres">
+                    <input type="text" name="postal_code" placeholder="postcode">
+                    <input type="submit" name="register" value="Registreer">
+                    <a href="forgot_password.php">heeft u al een account? log hier in</a>
                 </form>
 
                 <!-- Right ad -->
@@ -26,6 +29,8 @@ require_once("php/header_login.php");
                 </section>
             </div>
         </div>
+    </div>
+    <section class="divider_150px"><!-- divider --></section>
 
         <script src="https://kit.fontawesome.com/74f00c029b.js" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
