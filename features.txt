@@ -1,0 +1,80 @@
+Afbeelding uit de database (met gebruik van blob) laten zien
+
+=----=----=----=----=
+
+<?php
+
+$conn = "database"
+
+// Haal de blob-gegevens op (vervang 'jouw_tabel' en 'jouw_blob_kolom' met de juiste tabel- en kolomnamen)
+$stmt = $conn->prepare("SELECT Foto FROM producten WHERE ProductID = 1");
+$stmt->execute();
+
+// Fetch de blob-gegevens
+$blob_data = $stmt->fetch(PDO::FETCH_COLUMN);
+
+// Sluit de databaseverbinding
+$conn = null;
+
+// Converteer de BLOB-gegevens naar base64
+$base64_image = base64_encode($blob_data);
+
+// Toon de afbeelding op de website
+echo '<img src="data:image/jpeg;base64,' . $base64_image . '" alt="Opgehaalde afbeelding">';
+
+?>
+
+
+=----=----=----=----=
+
+Een afbeelding uploaden met gebruik van blob
+
+=----=----=----=----=
+
+Form:
+
+=----=----=----=----=
+
+<body>
+    <form action="XXX" method="post" enctype="multipart/form-data">
+        <label for="image">Selecteer een afbeelding:</label>
+        <input type="file" name="image" id="image" accept="image/*" required>
+        <br>
+        <input type="submit" value="Uploaden">
+    </form>
+</body>
+
+=----=----=----=----=
+
+Functie:
+
+=----=----=----=----=
+
+// Controleer of het formulier is ingediend
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Controleer of er een bestand is geüpload zonder fouten
+    if (isset($_FILES["image"]) && $_FILES["image"]["error"] == UPLOAD_ERR_OK) {
+        $conn = "database"
+
+
+        // Lees het bestand in binair formaat
+        $image_data = file_get_contents($_FILES["image"]["tmp_name"]);
+
+        // Bereid SQL-query voor (vervang 'jouw_tabel' en 'jouw_blob_kolom' met de juiste tabel- en kolomnamen)
+        $stmt = $conn->prepare("INSERT INTO producten (Foto) VALUES (:image_data)");
+        
+        // Bind de binair gegevens aan de parameter
+        $stmt->bindParam(':image_data', $image_data, PDO::PARAM_LOB);
+
+        // Voer de query uit
+        $stmt->execute();
+
+        echo "Afbeelding succesvol geüpload en opgeslagen in de database.";
+    } else {
+        echo "Er is een fout opgetreden bij het uploaden van de afbeelding.";
+    }
+}
+
+// Sluit de databaseverbinding
+$conn = null;
+?>

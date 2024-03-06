@@ -6,7 +6,7 @@ USE clearsky;
 
 -- Create Klant table
 CREATE TABLE Klant (
-    KlantID INT PRIMARY KEY,
+    KlantID INT AUTO_INCREMENT PRIMARY KEY,
     Naam VARCHAR(55),
     Email VARCHAR(255),
     Wachtwoord VARCHAR(255),
@@ -23,7 +23,7 @@ CREATE TABLE KlantInfo (
 
 -- Create Producten table
 CREATE TABLE Producten (
-    ProductID INT PRIMARY KEY,
+    ProductID INT AUTO_INCREMENT  PRIMARY KEY,
     Titel VARCHAR(55),
     KleineOmschrijving VARCHAR(255),
     Omschrijving TEXT,
@@ -35,7 +35,7 @@ CREATE TABLE Producten (
 
 -- Create Afspraken table
 CREATE TABLE Afspraken (
-    AfspraakID INT PRIMARY KEY,
+    AfspraakID INT AUTO_INCREMENT PRIMARY KEY,
     KlantID INT,
     VolledigeNaam VARCHAR(55),
     Telefoonnummer VARCHAR(20),
@@ -45,7 +45,7 @@ CREATE TABLE Afspraken (
 
 -- Create Facturen table
 CREATE TABLE Facturen (
-    FactuurID INT PRIMARY KEY,
+    FactuurID INT AUTO_INCREMENT PRIMARY KEY,
     KlantID INT,
     Naam VARCHAR(55),
     Adres VARCHAR(255),
