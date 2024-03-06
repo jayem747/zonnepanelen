@@ -93,7 +93,7 @@ header {
 }
 
 .site_logo {
-    height: 50px;
+    height: 90px;
 }
 
 .header_right_side {
@@ -156,6 +156,7 @@ CONTENT
 - INDEX.PHP
 - ADVERTISEMENTS
 - PRODUCT CONTAINER
+- LOGIN & REGISTER
 */
 
 /* INDEX.PHP */
@@ -265,5 +266,12 @@ CONTENT
 .product_page_container {
     width: 90%;
 }
+
+/* LOGIN & REGISTER */
+
+.login_formation {
+    display: flex;
+}
+
 
 /*-----------------------------------------------------------------------------*/
