@@ -32,5 +32,7 @@ $products->execute(array());
         }
         ?>
 </div>
-</body>
-</html>
+<section class="divider_150px"><!-- divider --></section>
+<?php
+require_once("php/footer.php");
+?>
