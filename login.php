@@ -12,11 +12,11 @@ require_once("php/header_login.php");
                 <!-- middle box -->
                 <form class="login_container" method="post" action="index.php">
                     <h1 class="blue_top_text">Log in</h1>
-                    <label for="name">Gebruikersnaam</label>
-                    <input type="text" name="name">
-                    <label for="name">Wachtwoord</label>
-                    <input type="text" name="name">
+                    <section class="divider_50px"><!-- space between ad and welcome section --></section>
+                    <input type="text" name="name" placeholder="Gebruikersnaam">
+                    <input type="text" name="password" placeholder="wachtwoord">
                     <input type="submit">
+                    <section class="divider_50px"><!-- space between ad and welcome section --></section>
                 </form>
 
                 <!-- Right ad -->

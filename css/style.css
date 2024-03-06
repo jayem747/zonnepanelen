@@ -25,7 +25,7 @@ CONTENT
 }
 
 .main_content {
-    margin: 0 90px;
+    margin: 0 70px;
     margin-top: calc(80px + 50px)
 }
 
@@ -194,6 +194,11 @@ CONTENT
     height: 150px;
 }
 
+.vertical_ad {
+    background-color: pink;
+    width: 250px;
+}
+
 
 /* PRODUCT CONTAINER */
 #products_grid {
@@ -258,6 +263,28 @@ CONTENT
 
 .login_formation {
     display: flex;
+}
+
+.login_container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.login_container input[type="text"] {
+    width: 90%;
+    height: 50px;
+    background-color: #cad8de;
+    color: #637ba0;
+    margin-bottom: 50px;
+    border: none;
+    border-radius: 5px;
+}
+
+.login_container input[type="text"]::placeholder {
+    color: #637ba0;
+    font-size: 24px;
 }
 
 
