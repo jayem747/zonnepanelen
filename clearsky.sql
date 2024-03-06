@@ -25,7 +25,6 @@ CREATE TABLE KlantInfo (
 CREATE TABLE Producten (
     ProductID INT AUTO_INCREMENT  PRIMARY KEY,
     Titel VARCHAR(55),
-    KleineOmschrijving VARCHAR(255),
     Omschrijving TEXT,
     Prijs DECIMAL(10,2),
     Voorraad INT,
