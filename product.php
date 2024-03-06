@@ -30,3 +30,8 @@ require_once("php/header.php");
         advertentie
     </section>
 </div>
+<section class="divider_150px"><!-- divider --></section>
+
+<?php
+require_once("php/footer.php");
+?>
