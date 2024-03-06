@@ -42,7 +42,7 @@ require_once("php/header.php");
             <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
         </section>
         <section><!-- empty section for spacing of button --></section>
-        <a href="producten.php" class="products_page_link">Zie meer</a>
+        <a href="pakketten.php" class="products_page_link">Zie meer</a>
     </section>
 
     <section class="divider_50px"><!-- space between products and text --></section>

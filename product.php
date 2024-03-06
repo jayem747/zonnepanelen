@@ -9,6 +9,7 @@ $dataFile = getProductId($productData);
 <div class="main_content">
     <?php
     foreach($dataFile as $product) {
+        $base64_image = base64_encode($product["Foto"])
     ?>
     <section class="divider_50px"><!-- divider --></section>
     <h1 class="blue_top_text"><?=$product['Titel']?></h1>
@@ -16,7 +17,7 @@ $dataFile = getProductId($productData);
     <section id="product_grid">
         <section class="product_page_container">
             <section class="">
-                <img src="img/solar_image.png" class="product_image">
+                <img src="data:image/jpeg;base64, <?=$base64_image?>" class="product_image">
             </section>
             <br>
             <h2>Specificaties:</h2>

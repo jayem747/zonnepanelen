@@ -39,7 +39,7 @@ product_containers.forEach(product_container => {
   // Create animation for each button
   let container_animation = gsap.to(product_container, {
       paused: true,
-      boxShadow: "3px 5px #e9c973"
+      boxShadow: "10px 15px #637ba0"
   });
 
   product_container.addEventListener("mouseenter", () => container_animation.play());
