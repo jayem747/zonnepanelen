@@ -92,6 +92,14 @@ header {
     margin-left: 0px;
 }
 
+.header_left_side.admin_left_side {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
 .site_logo {
     height: 90px;
 }
