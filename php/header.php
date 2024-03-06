@@ -1,3 +1,6 @@
+<?php
+include("database_function.php");
+?>
 <!DOCTYPE html>
 <html>
     <head>

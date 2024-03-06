@@ -1,10 +1,17 @@
 <?php
 require_once("php/header.php");
+
+
+$productData = $_GET['productID'];
+$dataFile = getProductId($productData);
 ?>
 
 <div class="main_content">
+    <?php
+    foreach($dataFile as $product) {
+    ?>
     <section class="divider_50px"><!-- divider --></section>
-    <h1 class="blue_top_text">X</h1>
+    <h1 class="blue_top_text"><?=$product['Titel']?></h1>
     <section class="divider_50px"><!-- divider --></section>
     <section id="product_grid">
         <section class="product_page_container">
@@ -13,10 +20,10 @@ require_once("php/header.php");
             </section>
             <br>
             <h2>Specificaties:</h2>
-            <p>XX</p>
+            <p><?=$product["Omschrijving"]?></p>
         </section>
         <section class="product_page_container">
-            <h2>Prijs: €XXX,XX</h2>
+            <h2>Prijs: €<?=$product["Prijs"]?></h2>
             <br><br>
             <form method="post" action="#">
                 <input type="number" name="aantal" min="1" max="50">
@@ -25,6 +32,9 @@ require_once("php/header.php");
             </form>
         </section>
     </section>
+    <?php 
+    }
+    ?>
     <section class="divider_50px"><!-- divider --></section>
     <section class="horizontal_ad">
         advertentie
