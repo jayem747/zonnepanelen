@@ -369,6 +369,16 @@ CONTENT
     margin-top: 10%;
 }
 
+.admin_product_button {
+    background-color: #637ba0;
+    color: #fff;
+    display: inline-block; /* Updated property */
+    justify-content: center;
+    width: fit-content;
+    padding: 5px;
+    box-shadow: 3px 5px #e9c973;
+}
+
 
 
 /*-----------------------------------------------------------------------------*/
