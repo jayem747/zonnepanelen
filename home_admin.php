@@ -21,6 +21,7 @@ $products->execute(array());
                 </section>
                 <h2><?=$product["Titel"]?></h2>
                 <p><?=$product["Omschrijving"]?></p>
+                <div class="yellow_divider"></div>
                 <p>Prijs: €<?=$product["Prijs"]?></p>
                 <p>Voorraad: <?=$product["Voorraad"]?></p>
                 <section>
