@@ -31,7 +31,7 @@ $products->execute(array());
                 <img src="data:image/jpeg;base64,<?=$base64_image?>" class="product_image">
             </section>
             <h2><?=$product["Titel"]?></h2>
-            <p><?=$product["Omschrijving"]?></p>
+            <p><?=$product["KleineOmschrijving"]?></p>
             <a href="product.php?productID=<?=$product["ProductID"]?>" class="view_product_button">bekijk product</a>
         </section>
         <?php
