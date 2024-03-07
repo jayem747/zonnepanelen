@@ -98,8 +98,6 @@ header {
     justify-content: space-between;
 }
 
-
-
 .site_logo {
     height: 90px;
 }
@@ -255,7 +253,7 @@ CONTENT
     height: 80px;
 }
 
-.product_container p {
+.product_container .product_description {
     height: 100px;
     margin: 10px 5%;
 }

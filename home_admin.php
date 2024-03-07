@@ -24,8 +24,8 @@ $products->execute(array());
                 <p>Prijs: €<?=$product["Prijs"]?></p>
                 <p>Voorraad: <?=$product["Voorraad"]?></p>
                 <section>
-                    <a href="edit_product.php?productID=<?=$product["ProductID"]?>" class="view_product_button">Bewerken</a>
-                    <a href="delete_product.php?productID=<?=$product["ProductID"]?>">Verwijderen</a>
+                    <a href="edit_product.php?productID=<?=$product["ProductID"]?>" class="product_edit_bt">Bewerken</a>
+                    <a href="delete_product.php?productID=<?=$product["ProductID"]?>" class="product_delete_bt">Verwijderen</a>
                 </section>
             </section>
         <?php
