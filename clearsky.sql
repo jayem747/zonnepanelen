@@ -57,7 +57,7 @@ CREATE TABLE Zonnepanelen (
     KlantID INT,
     Stroomvoorziening TEXT,
     FOREIGN KEY (KlantID) REFERENCES Klant(KlantID)
-)
+);
 
 
 INSERT INTO Producten (Titel, Omschrijving, Prijs, Voorraad, Foto, Specificaties)
