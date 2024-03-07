@@ -13,7 +13,8 @@ require_once("php/header.php");
             <h2>basispakket</h2>
             <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening! Daarom is dit pakket de beste keuze voor jou! Om deze text not wat op te vullen voeg ik nog wat extra toe. Maar er moet een maximum aan zitten totdat alles fout gaat.. Weetje dit is zo een leuke zonnepaneel dat u zeker dit pakket zou moeten kopen.</p>
             <div class="yellow_divider"></div>
-            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
+            <a href="product.php?productID=#?option=edit" class="admin_product_button" style="margin-left: 30%;">Bewerken</a>
+            <a href="product.php?productID=#?option=delete" class="admin_product_button">Verwijderen</a>
         </section>
         <section class="product_container">
             <section class="color_product_image">
@@ -22,7 +23,7 @@ require_once("php/header.php");
             <h2>basispakket</h2>
             <p>Ontdek ons instappakket: 4 zonnepanelen, omvormer en installatie. Bespaar direct op uw energierekening!</p>
             <div class="yellow_divider"></div>
-            <a href="product.php?productID=#" class="view_product_button">bekijk product</a>
+            <a href="product.php?productID=#" class="admin_product_button">bekijk product</a>
         </section>
         <section class="product_container">
             <section class="color_product_image">
