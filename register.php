@@ -1,5 +1,8 @@
 <?php
 require_once("php/header_login.php");
+require_once("php/login_functions.php");
+
+session_start();
 ?>
 
     <div class="main_content">
@@ -10,7 +13,7 @@ require_once("php/header_login.php");
             </section>
 
             <!-- middle box -->
-            <form class="login_container" method="post" action="index.php">
+            <form class="login_container" method="post" action="">
                 <h1 class="blue_top_text">registreer</h1>
                 <section class="divider_50px"><!-- divider --></section>
                 <input type="text" name="name" placeholder="Gebruikersnaam">
@@ -35,3 +38,7 @@ require_once("php/header_login.php");
         <script src="js/animations.js"></script>
     </body>
 </html>
+
+<?php
+validateAccountRegistration()
+?>
