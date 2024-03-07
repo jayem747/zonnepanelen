@@ -346,4 +346,18 @@ CONTENT
     background-color: #637ba0;
 }
 
+
+/* ADMIN PAGE */
+
+.yellow_divider {
+    height: 20px;
+    background-color: #e9c973;
+    width: 60%;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 10%;
+}
+
+
+
 /*-----------------------------------------------------------------------------*/
