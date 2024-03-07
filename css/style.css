@@ -26,7 +26,7 @@ CONTENT
 
 .main_content {
     margin: 0 70px;
-    margin-top: calc(80px + 50px)
+    margin-top: calc(80px + 30px)
 }
 
 body {
@@ -82,7 +82,7 @@ header {
 #header_top_layer {
     background-color: #fff3d0;
     height: 80px;
-    font-size: 30px;
+    font-size: 25px;
     display: flex;
     align-items: center;
     padding: 0 50px;
@@ -112,18 +112,31 @@ header {
 }
 
 i.fa-solid.fa-cart-shopping {
-    font-size: 30px !important;
+    font-size: 20px !important;
 }
 
 /* BOTTOM SIDE */
 
 #header_bot_layer {
     background-color: #e9c973;
-    height: 50px;
+    height: 33px;
     font-size: 24px;
     display: flex;
     padding: 0 20%;
     align-items: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+#header_bot_layer a{
+    background-color: #e9c973;
+    transition: 0.6s;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#header_bot_layer a:hover{
+    background-color: #d5a421;
 }
 
 
