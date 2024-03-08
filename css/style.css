@@ -66,6 +66,7 @@ CONTENT
 - WHOLE HEADER
 - TOP SIDE
 - BOTTOM SIDE
+- ADMIN HEADER
 */
 
 /* WHOLE HEADER */
@@ -137,6 +138,17 @@ i.fa-solid.fa-cart-shopping {
 
 #header_bot_layer a:hover{
     background-color: #d5a421;
+}
+
+/* ADMIN HEADER */
+#header_top_layer .admin_left_side,
+#header_top_layer .admin_right_side,
+#header_top_layer .admin_header_text {
+    flex: 1;
+}
+
+#header_top_layer .admin_header_text {
+    text-align: center;
 }
 
 
@@ -267,6 +279,12 @@ CONTENT
     height: 80px;
 }
 
+.product_description {
+    height: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .product_container .product_description {
     height: 100px;
     margin: 10px 5%;
@@ -303,6 +321,7 @@ CONTENT
 .product_page_container {
     width: 90%;
 }
+
 
 /* LOGIN & REGISTER */
 
@@ -360,14 +379,59 @@ CONTENT
 
 
 /* ADMIN PAGE */
+.admin_price_and_stock_container,
+.admin_price_and_stock_container td {
+    width: 100%;
+    margin-left: 25px;
+}
+
+
+.admin_product_price,
+.admin_product_stock {
+    color: #637ba0;
+    float: right;
+    font-weight: bold;
+}
+
+.admin_price_and_stock_container td:nth-of-type(2) {
+    text-align: right;
+    padding-right: 50px;
+}
+
+.edit_and_delete_bt_container {
+    display: flex;
+    justify-content: center;
+}
+
+.product_edit_bt {
+    background-color: #cad8de;
+    font-weight: bold;
+    margin-right: 0;
+    padding: 5px;
+    box-shadow: 5px 8px #e9c973;
+}
+
+.product_delete_bt {
+    background-color: #637ba0;
+    color: #fff;
+    font-weight: bold;
+    float: left;
+    margin-left: 0;
+    padding: 5px;
+    box-shadow: 5px 8px #e9c973;
+}
 
 .yellow_divider {
-    height: 20px;
+    height: 10px;
     background-color: #e9c973;
     width: 60%;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 25px;
     margin-top: 10%;
+}
+
+.admin_product_price {
+    margin-bottom: 25px;
 }
 
 .admin_product_button {

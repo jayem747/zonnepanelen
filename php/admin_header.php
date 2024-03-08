@@ -14,8 +14,8 @@ include("database_function.php");
             <section class="header_left_side admin_left_side">
                 <a href="home_admin.php"><img src="img/logo.png" alt="site_logo" class="site_logo"></a>
             </section>
-            <h3>Welkom admin</h3>
-            <section class="header_right_side">
+            <h3 class="admin_header_text">Welkom admin</h3>
+            <section class="header_right_side admin_right_side">
                 <a href="add_product.php">Product toevoegen</a>
                 <a href="logout.php">log uit</a>
             </section>
