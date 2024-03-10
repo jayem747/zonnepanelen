@@ -29,9 +29,17 @@ CONTENT
     margin-top: calc(80px + 30px)
 }
 
+.main_content.two_sided_page {
+    display: flex;
+}
+
 body {
     max-width: 100%;
     overflow-x: hidden;
+}
+
+textarea {
+    resize: none;
 }
 
 /* GENERAL TOPOGRAPHY */
@@ -189,6 +197,7 @@ CONTENT
 - ADVERTISEMENTS
 - PRODUCT CONTAINER
 - LOGIN & REGISTER
+- FORMS
 */
 
 /* INDEX.PHP */
@@ -445,5 +454,11 @@ CONTENT
 }
 
 
+/* FORMS */
+
+section.page_left_side form {
+    display: flex;
+    flex-flow: column;
+}
 
 /*-----------------------------------------------------------------------------*/
