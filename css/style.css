@@ -516,7 +516,8 @@ section.page_right_side .double_buttons {
 .form_img_product {
     width: 80%;
     margin: 0 auto;
-    heighT: 240px;
+    height: 240px;
+    background-color: #637ba0;
 }
 
 .blue_button_left {
