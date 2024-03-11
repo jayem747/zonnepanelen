@@ -26,12 +26,13 @@ $dataFile = getProductId($productData);
         <section class="product_page_container">
             <h2>Prijs: €<?=$product["Prijs"]?></h2>
             <br><br>
-            <form method="post" action="#">
-                <input type="number" name="aantal" min="1" max="50">
+            <form class="product_form" method="post" action="#">
+                <input type="number" name="aantal" min="1" max="50" placeholder="Aantal">
                 <br><br>
                 <input type="submit" value="In winkelwagen">
             </form>
         </section>
+
     </section>
     <?php 
     }
