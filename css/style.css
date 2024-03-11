@@ -242,6 +242,7 @@ CONTENT
 .vertical_ad {
     background-color: pink;
     width: 250px;
+    height: 500px;
 }
 
 
@@ -707,5 +708,27 @@ section.page_right_side .double_buttons {
     padding: 10px 0;
 }
 
+
+/* CART */
+
+.product_in_cart_container {
+    display: flex;
+    flex-flow: row;
+    margin-bottom: 25px;
+}
+
+.product_in_cart_container img {
+    width: 250px;
+    height: 140px;
+}
+
+.cart_buttons {
+    background-color: #637ba0;
+    color: #fff;
+    width: fit-content;
+    padding: 5px;
+    box-shadow: 3px 5px #e9c973;
+    margin: 30px auto;
+}
 
 /*-----------------------------------------------------------------------------*/
