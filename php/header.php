@@ -15,8 +15,8 @@ include("database_function.php");
                 <a href="index.php"><img src="img/logo.png" alt="site_logo" class="site_logo"></a>
             </section>
             <section class="header_right_side">
-                <a href="login.php">login</a>
-                <a href="register.php">registreer</a>
+                <a href="login.php">Login</a>
+                <a href="register.php">Registreer</a>
                 <a href="cart.php" class="shopping_cart"><i class="fa-solid fa-cart-shopping"></i></a>
             </section>
         </div>
