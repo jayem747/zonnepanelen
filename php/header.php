@@ -18,9 +18,9 @@ session_start();
             <?php if(isset($_SESSION["username"])) { ?>
                 <section class="header_right_side">
                 <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == true) { ?>
-                    <a href="admin.php">Admin</a>
+                    <a href="home_admin.php">Admin</a>
                 <?php } ?>
-                <a href="php/logout.php">Logout</a>
+                <a href="php/logout.php">Log uit</a>
                 <a href="cart.php" class="shopping_cart"><i class="fa-solid fa-cart-shopping"></i></a>
             <?php } else { ?>
                 <section class="header_right_side">

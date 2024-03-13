@@ -85,7 +85,7 @@ function validateData($data) {
         }
         // code that inserts comment
         else {
-            $user = createAccount($_POST["email"], $_POST["name"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["address"], $_POST["postal_code"]);
+            createAccount($_POST["email"], $_POST["name"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["address"], $_POST["postal_code"]);
             $_SESSION["username"] = $_POST["name"];
             $_SESSION["email"] = $_POST["email"];
             if (isset($_SESSION["username"]) ) {
