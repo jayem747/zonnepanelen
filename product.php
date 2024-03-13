@@ -14,26 +14,30 @@ $dataFile = getProductId($productData);
     <section class="divider_50px"><!-- divider --></section>
     <h1 class="blue_top_text"><?=$product['Titel']?></h1>
     <section class="divider_50px"><!-- divider --></section>
-    <section id="product_grid">
-        <section class="product_page_container">
-            <section class="">
-                <img src="data:image/jpeg;base64, <?=$base64_image?>" class="product_image">
+    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <section id="product_grid">
+            <input type="hidden" name="ProductID" value="<?=$product['ProductID']?>">
+            <section class="product_page_container">
+                <section class="">
+                    <img src="data:image/jpeg;base64, <?=$base64_image?>" class="product_image">
+                </section>
+                <br>
+                <h2>Specificaties:</h2>
+                <p><?=$product["Omschrijving"]?></p>
             </section>
-            <br>
-            <h2>Specificaties:</h2>
-            <p><?=$product["Omschrijving"]?></p>
-        </section>
-        <section class="product_page_container">
-            <h2>Prijs: €<?=$product["Prijs"]?></h2>
-            <br><br>
-            <form class="product_form" method="post" action="#">
-                <input type="number" name="aantal" min="1" max="50" placeholder="Aantal">
+            <section class="product_page_container">
+                <h2>Prijs: €<?=$product["Prijs"]?></h2>
                 <br><br>
-                <input type="submit" value="In winkelwagen">
+                <form class="product_form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                    <input type="number" name="amount" min="1" max="50" placeholder="Aantal">
+                    <br><br>
+                    <input type="hidden" name="action" value="setInCart">
+                    <input type="submit" name="setInCart" value="In winkelwagen">
+                </form>
+            </section>
             </form>
         </section>
-
-    </section>
+    </form>
     <?php 
     }
     ?>
@@ -45,5 +49,6 @@ $dataFile = getProductId($productData);
 <section class="divider_150px"><!-- divider --></section>
 
 <?php
+shopping_cart();
 require_once("php/footer.php");
 ?>

@@ -742,6 +742,11 @@ section.page_right_side .double_buttons {
 .product_in_cart_container img {
     width: 250px;
     height: 140px;
+    margin: 0 16px;
+}
+
+.cart_product_info {
+    margin: 0;
 }
 
 .cart_buttons {

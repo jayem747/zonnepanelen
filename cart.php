@@ -11,25 +11,9 @@ $products->execute(array());
     <section class="divider_50px"><!-- extra space --></section>
     <div class="two_sided_page">
         <section class="page_left_side">
-            <section class="product_in_cart_container">
-                <img src="img/solar_image.png" class="cart_product_img">
-                <section>
-                    <h2>Lorem pakket</h2>
-                    <p>aantal: x</p>
-                    <p>totaal: €x.xx</p>
-                </section>
-            </section>
-            <section class="product_in_cart_container">
-                <img src="img/solar_image.png" class="cart_product_img">
-                <section>
-                    <h2>Lorem pakket</h2>
-                    <p>aantal: x</p>
-                    <p>totaal: €x.xx</p>
-                </section>
-            </section>
-            <section class="divider_50px"><!-- extra space --></section>
-            <a href="payment.php" class="cart_buttons">Betaal</a>
-            <a href="#" class="cart_buttons">Afspraak</a>
+            <?php
+                print_shopping_cart()
+            ?>
         </section>
         <section class="page_right_side">
             <section class="vertical_ad">
