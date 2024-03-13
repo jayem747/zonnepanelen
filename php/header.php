@@ -32,7 +32,7 @@ session_start();
         </div>
         <div id="header_bot_layer">
             <a href="#">offerte</a>
-            <a href="#">dashboard</a>
+            <a href="dashboard.php">dashboard</a>
             <a href="#">contact</a>
         </div>
     </header>
