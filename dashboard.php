@@ -24,22 +24,6 @@ require_once("php/header.php");
             border: 1px solid #ccc;
             padding: 10px;
         }
-        #table-container {
-            width: 90%;
-            margin: 0 auto;
-        }
-        #datatable {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        #datath, #datatd {
-            border: 1px solid #ccc;
-            padding: 8px;
-            text-align: left;
-        }
-        #datath {
-            background-color: #f2f2f2;
-        }
     </style>
 </head>
 <body>
