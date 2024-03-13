@@ -130,7 +130,7 @@ header {
 }
 
 .header_right_side a:hover {
-    background-color: #d5a421;
+    background-color: #e9c973;
     border-radius: 5px;
     font-weight: 600;
 }
@@ -161,9 +161,9 @@ i.fa-solid.fa-cart-shopping {
 
 #header_bot_layer a:hover{
     background-color: #d5a421;
-    border-radius: 5px;
+/*     border-radius: 5px;
     padding: 5px 15px;
-    font-weight: 600;
+    font-weight: 600; */
 }
 
 /* ADMIN HEADER */
