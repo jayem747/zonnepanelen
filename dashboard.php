@@ -1,3 +1,7 @@
+<?php
+require_once("php/header.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +16,7 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-            margin-top: 20px;
+
         }
         .chart-container {
             width: 45%;
@@ -24,21 +28,23 @@
             width: 90%;
             margin: 0 auto;
         }
-        table {
+        #datatable {
             width: 100%;
             border-collapse: collapse;
         }
-        th, td {
+        #datath, #datatd {
             border: 1px solid #ccc;
             padding: 8px;
             text-align: left;
         }
-        th {
+        #datath {
             background-color: #f2f2f2;
         }
     </style>
 </head>
 <body>
+<section class="divider_150px"><!-- space between ad and welcome section --></section>
+
     <div class="container">
         <!-- Chart 1 -->
         <div class="chart-container">
@@ -56,27 +62,6 @@
         <div class="chart-container">
             <canvas id="chart4"></canvas>
         </div>
-    </div>
-
-    <!-- Table -->
-    <div id="table-container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Column 1</th>
-                    <th>Column 2</th>
-                    <th>Column 3</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Data 1</td>
-                    <td>Data 2</td>
-                    <td>Data 3</td>
-                </tr>
-                <!-- Add more rows as needed -->
-            </tbody>
-        </table>
     </div>
 
     <!-- Include Chart.js library -->
@@ -119,3 +104,7 @@
     </script>
 </body>
 </html>
+
+<?php
+require_once("php/footer.php");
+?>
