@@ -20,9 +20,6 @@ function check_if_item_is_in_cart() {
         if ($item["ProductID"] == $_POST['ProductID']) {
             $item['amount'] += intval($_POST['amount']);
             $isNewItem = false;
-            ?>
-            <script>console.log("dit stuk")</script>
-            <?php
             break;
         }
     }
@@ -46,7 +43,6 @@ function add_to_cart() {
     }
      if ($isNewItem && isset($_POST['ProductID']) && isset($_POST['amount']) ) {
         array_push($_SESSION['cart'], ["ProductID" => $_POST['ProductID'], "amount" => $_POST['amount'] ]);
-        ?><script>console.log("array push gelukt")</script><?php
         $_POST['ProductID'] = null;
         $_POST['amount'] = null;
         $isNewItem = false;
@@ -75,7 +71,7 @@ function shopping_cart() {
     }
 }
 
-function printShoppingCart() {
+function print_shopping_cart() {
     $totalPrice = 0.00;
     $pdo = pdoObjectCart('clearsky');
     $sql = "SELECT * FROM producten WHERE ProductID = :ProductID";
@@ -95,7 +91,7 @@ function printShoppingCart() {
             ?>
             <section class="product_in_cart_container">
                 <img src="data:image/jpeg;base64, <?=$base64_image?>" class="cart_product_img">
-                <section>
+                <section class="cart_product_info">
                     <h2><?=$products['Titel']?></h2>
                     <p>aantal: <?=$item['amount']?></p>
                     <p>totaal: €<?=number_format($priceProduct, 2, '.', '')?></p>

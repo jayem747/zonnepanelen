@@ -12,7 +12,7 @@ $products->execute(array());
     <div class="two_sided_page">
         <section class="page_left_side">
             <?php
-                printShoppingCart()
+                print_shopping_cart()
             ?>
         </section>
         <section class="page_right_side">
