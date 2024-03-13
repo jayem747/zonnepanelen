@@ -2,7 +2,7 @@
 require_once("php/header.php");
 
 $pdo = pdoObject("clearsky");
-$sql = "SELECT * FROM producten";
+$sql = "SELECT * FROM producten LIMIT 3";
 $products = $pdo->prepare($sql);
 $products->execute(array());
 ?>
