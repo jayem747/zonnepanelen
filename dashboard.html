@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <!-- Include CSS stylesheets for the dashboard -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
+    <style>
+        /* Define CSS styles for the dashboard layout */
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .chart-container {
+            width: 45%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        #table-container {
+            width: 90%;
+            margin: 0 auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Chart 1 -->
+        <div class="chart-container">
+            <canvas id="chart1"></canvas>
+        </div>
+        <!-- Chart 2 -->
+        <div class="chart-container">
+            <canvas id="chart2"></canvas>
+        </div>
+        <!-- Chart 3 -->
+        <div class="chart-container">
+            <canvas id="chart3"></canvas>
+        </div>
+        <!-- Chart 4 -->
+        <div class="chart-container">
+            <canvas id="chart4"></canvas>
+        </div>
+    </div>
+
+    <!-- Table -->
+    <div id="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Column 1</th>
+                    <th>Column 2</th>
+                    <th>Column 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Data 1</td>
+                    <td>Data 2</td>
+                    <td>Data 3</td>
+                </tr>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Include Chart.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script>
+        // JavaScript to create charts (you need to replace this with actual chart data)
+        // Example chart data
+        const chartData = {
+            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+            datasets: [{
+                label: 'Chart 1 Data',
+                backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                borderColor: 'rgba(255, 99, 132, 1)',
+                borderWidth: 1,
+                data: [65, 59, 80, 81, 56, 55, 40],
+            }]
+        };
+
+        // Chart configuration
+        const chartConfig = {
+            type: 'line',
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            },
+        };
+
+        // Render charts
+        const charts = document.querySelectorAll('.chart-container canvas');
+        charts.forEach((chart, index) => {
+            const ctx = chart.getContext('2d');
+            const config = Object.assign({}, chartConfig); // Clone config
+            config.data.datasets[0].label = `Chart ${index + 1} Data`; // Update label
+            new Chart(ctx, config);
+        });
+    </script>
+</body>
+</html>
