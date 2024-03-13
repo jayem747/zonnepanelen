@@ -582,6 +582,7 @@ section.page_right_side .double_buttons {
     height: 65px;
     font-size: 30px;
     border-radius: 10px 0 0 10px;
+    cursor: pointer;
 }
 
 .yellow_button_right {
@@ -591,6 +592,7 @@ section.page_right_side .double_buttons {
     height: 65px;
     font-size: 30px;
     border-radius: 0 10px 10px 0;
+    cursor: pointer;
 }
 
 .submit_dark_blue {
@@ -601,6 +603,7 @@ section.page_right_side .double_buttons {
     height: 65px;
     font-size: 30px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 

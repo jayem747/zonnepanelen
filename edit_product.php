@@ -2,9 +2,13 @@
 require_once("php/admin_header.php");
 
 $pdo = pdoObject("clearsky");
-$sql = "SELECT * FROM producten";
+$id = $_GET["productID"];
+$sql = "SELECT * FROM producten WHERE ProductID = :id";
 $products = $pdo->prepare($sql);
-$products->execute(array());
+$products->bindParam(':id', $id);
+$products->execute();
+
+$product = $products->fetch(PDO::FETCH_ASSOC);
 ?>
 <div class="main_content">
     <h1 class="blue_top_text">Bewerken product</h1>
@@ -13,7 +17,7 @@ $products->execute(array());
         <section class="page_left_side">
             <form>
                 <label for="name">Naam</label>
-                <input type="text" name="name">
+                <input type="text" name="name" value="<?php echo $product["Titel"] ?>">
                 <section class="divider_25px"><!-- extra space --></section>
                 <table>
                     <tr>
@@ -25,20 +29,21 @@ $products->execute(array());
                         <td><label for="price">Prijs</label></td>
                     </tr>
                     <tr class="close_input">
-                        <td><input type="number" name="stock"></td>
-                        <td><input type="number" class="yellow_input"  step=0.01 name="Prijs"></td>
+                        <td><input type="number" name="stock" value="<?php echo $product["Voorraad"] ?>"></td>
+                        <td><input type="number" class="yellow_input" step=0.01 name="Prijs" value="<?php echo $product["Prijs"] ?>"></td>
                     </tr>
                 </table>
                 <section class="divider_25px"><!-- extra space --></section>
-                <label for="short_desc">Korte omschrijving</label>
-                <input type="text" name="short_desc">
+                <label for="specificatie">Specificaties</label>
+                <input type="text" id="specificatie" name="specificaties" value="<?php echo $product["Specificaties"] ?>">
                 <section class="divider_25px"><!-- extra space --></section>
-                <label for="whole_desc">volledige omschrijving</label>
-                <textarea name="whole_desc" rows="4" cols="50"></textarea>
+                <label for="omschrijving">Omschrijving</label>
+                <textarea id="omschrijving" name="omschrijving" rows="4" cols="50"><?php echo $product["Omschrijving"] ?></textarea>
         </section>
         <section class="page_right_side">
             <p>Foto's</p>
-                <img src="img/solar_image.png" class="form_img_product">
+                <?php $base64_image = base64_encode($product["Foto"]) ?>
+                <img src="data:image/jpeg;base64,<?=$base64_image?>" class="form_img_product">
                 <section class="divider_25px"><!-- extra space --></section>
                 <table class="double_buttons">
                     <tr>
