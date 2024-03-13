@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 function pdoObject($dbname) {
     $servername = "localhost";
     $user = "root";
@@ -49,7 +49,7 @@ function validateData($data) {
             $address = "";
         }
         else {
-            $password = validateData(($_POST["address"]));
+            $address = validateData(($_POST["address"]));
         }
         if(empty(validateData($_POST["postal_code"])) ) {
             $postal_code = "";
@@ -85,12 +85,12 @@ function validateData($data) {
         }
         // code that inserts comment
         else {
-            createAccount($_POST["email"], $_POST["username"], password_hash($_POST["password"], PASSWORD_DEFAULT));
-            $_SESSION["username"] = $_POST["username"];
-            $_SESSION["email"] = $user["email"];
-            $_SESSION["password"] = $user["password"];
+            $user = createAccount($_POST["email"], $_POST["name"], password_hash($_POST["password"], PASSWORD_DEFAULT), $_POST["address"], $_POST["postal_code"]);
+            $_SESSION["username"] = $_POST["name"];
+            $_SESSION["email"] = $_POST["email"];
             if (isset($_SESSION["username"]) ) {
                 header("location: index.php");
+                exit();
             }
         }
     }
@@ -98,20 +98,77 @@ function validateData($data) {
 
 function createAccount($email, $username, $password, $address, $postal_code) {
     $pdo = pdoObject("clearsky");
-    $sql = "INSERT INTO klant (Naam, Email, Wachtwoord, Adres, Postcode)
-            VALUES (:username, :email, :wachtwoord, :adres, :postcode )";
-    $stm = $pdo->prepare($sql);
-    
-    $stm->bindParam(':username', $username);
-    $stm->bindParam(':email', $email);
-    $stm->bindParam(':password', $password);
-    $stm->bindParam(':adres', $address);
-    $stm->bindParam(':postcode', $postal_code);
-    
-    $stm->execute();
-    $user = $stm->fetch();
 
-    return $user;
+    // Insert into "klant" table
+    $sqlKlant = "INSERT INTO klant (Naam, Email, Wachtwoord, Adres, Postcode)
+            VALUES (:username, :email, :password, :adres, :postcode)";
+    $stmKlant = $pdo->prepare($sqlKlant);
+
+    $stmKlant->bindParam(':username', $username);
+    $stmKlant->bindParam(':email', $email);
+    $stmKlant->bindParam(':password', $password);
+    $stmKlant->bindParam(':adres', $address);
+    $stmKlant->bindParam(':postcode', $postal_code);
+
+    $stmKlant->execute();
+
+    // Get the generated klantID
+    $klantID = $pdo->lastInsertId();
+
+    // Insert into "klantinfo" table
+    $sqlKlantInfo = "INSERT INTO klantinfo (klantID, Admin)
+            VALUES (:klantID, 0)";
+    $stmKlantInfo = $pdo->prepare($sqlKlantInfo);
+
+    $stmKlantInfo->bindParam(':klantID', $klantID);
+    $stmKlantInfo->execute();
+
+    return $klantID;
+}
+
+
+
+function accountLogin() {
+    if(isset($_POST["login"])) {
+        $pdo = pdoObject("clearsky");
+        $sql = "SELECT * FROM klant WHERE Email = :email";
+        $stm = $pdo->prepare($sql);
+        $stm->bindParam(':email', $_POST["email"]);
+        $stm->execute();
+        $user = $stm->fetch();
+
+        if(password_verify($_POST["password"], $user["Wachtwoord"])) {
+            $_SESSION["username"] = $user["Naam"];
+            $_SESSION["email"] = $user["Email"];
+
+            // Check if the user is an admin
+            $isAdmin = isAdmin($user["KlantID"]);
+
+            // Add the admin status to the session
+            $_SESSION["admin"] = $isAdmin;
+
+            header("location: index.php");
+            exit();
+        } else {
+            ?>
+            <script>
+                alert("Email of wachtwoord is onjuist");
+            </script>
+            <?php
+        }
+    }
+}
+
+// Function to check if the user is an admin
+function isAdmin($klantID) {
+    $pdo = pdoObject("clearsky");
+    $sql = "SELECT Admin FROM klantinfo WHERE klantID = :klantID";
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(':klantID', $klantID);
+    $stm->execute();
+    $adminStatus = $stm->fetchColumn();
+
+    return $adminStatus == 1; // Assuming 1 represents admin, adjust if needed
 }
 
 
