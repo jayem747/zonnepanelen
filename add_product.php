@@ -1,5 +1,6 @@
 <?php
 require_once("php/admin_header.php");
+require_once("php/admin_functions.php");
 
 $pdo = pdoObject("clearsky");
 $sql = "SELECT * FROM producten";
@@ -11,9 +12,9 @@ $products->execute(array());
     <section class="divider_50px"><!-- extra space --></section>
     <div class="two_sided_page">
         <section class="page_left_side">
-            <form>
+            <form action="" method="post" enctype="multipart/form-data">
                 <label for="name">Naam</label>
-                <input type="text" name="name">
+                <input type="text" name="naam">
                 <section class="divider_25px"><!-- extra space --></section>
                 <table>
                     <tr>
@@ -25,23 +26,25 @@ $products->execute(array());
                         <td><label for="price">Prijs</label></td>
                     </tr>
                     <tr class="close_input">
-                        <td><input type="number" name="stock"></td>
-                        <td><input type="number" class="yellow_input"  step=0.01 name="Prijs"></td>
+                        <td><input type="number" name="voorraad"></td>
+                        <td><input type="number" class="yellow_input"  step=0.01 name="prijs"></td>
                     </tr>
                 </table>
                 <section class="divider_25px"><!-- extra space --></section>
-                <label for="short_desc">Korte omschrijving</label>
-                <input type="text" name="short_desc">
+                <label for="specificatie">Specificaties</label>
+                <input type="text" id="specificatie" name="specificaties">
                 <section class="divider_25px"><!-- extra space --></section>
-                <label for="whole_desc">volledige omschrijving</label>
-                <textarea name="whole_desc" rows="4" cols="50"></textarea>
+                <label for="omschrijving">Omschrijving</label>
+                <textarea id="omschrijving" name="omschrijving" rows="4" cols="50"></textarea>
         </section>
         <section class="page_right_side">
             <p>Foto's</p>
                 <img src="img/solar_image.png" class="form_img_product">
+                <br>
+                <input type="file" name="product_image" accept="image/*">
                 <section class="divider_25px"><!-- extra space --></section>
                 <section class="divider_25px"><!-- extra space --></section>
-                <input type="submit" value="product toevoegen" class="submit_dark_blue">
+                <input type="submit" name="addProduct" value="product toevoegen" class="submit_dark_blue">
             </form>
         </section>
     </div>
@@ -49,4 +52,5 @@ $products->execute(array());
 <section class="divider_150px"><!-- extra space --></section>
 <?php
 require_once("php/footer.php");
+addProductAdmin();
 ?>
