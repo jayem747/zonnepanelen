@@ -193,8 +193,11 @@ footer section {
 }
 
 footer section h2 {
-    text-align: center;
-    margin-left: 10%;
+    margin-left: 50%;
+}
+
+footer section table{
+    margin-left: 50%;
 }
 
 footer section ul {
