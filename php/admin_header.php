@@ -17,6 +17,7 @@ include("database_function.php");
             <h3 class="admin_header_text">Welkom admin</h3>
             <section class="header_right_side admin_right_side">
                 <a href="add_product.php">Product toevoegen</a>
+                <a href="#">Afspraken</a>
                 <a href="index.php">Index</a>
             </section>
         </div>

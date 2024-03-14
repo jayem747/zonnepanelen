@@ -1,6 +1,7 @@
 <?php
 include("database_function.php");
-session_start();
+include("cart_functions.php");
+if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,9 +32,8 @@ session_start();
             <?php } ?>
         </div>
         <div id="header_bot_layer">
-            <a href="#">offerte</a>
+            <a href="index.php">home</a>
             <a href="dashboard.php">dashboard</a>
-            <a href="#">contact</a>
         </div>
     </header>
     <body>

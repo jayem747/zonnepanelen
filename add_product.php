@@ -39,9 +39,9 @@ $products->execute(array());
         </section>
         <section class="page_right_side">
             <p>Foto's</p>
-                <img src="img/solar_image.png" class="form_img_product">
+            <img id="newProductImage" src="img/NoPicture.jpeg" class="form_img_product"><br>
                 <br>
-                <input type="file" name="product_image" accept="image/*">
+                <input type="file" id="newProduct_image" name="product_image" accept="image/*">
                 <section class="divider_25px"><!-- extra space --></section>
                 <section class="divider_25px"><!-- extra space --></section>
                 <input type="submit" name="addProduct" value="product toevoegen" class="submit_dark_blue">
@@ -50,6 +50,25 @@ $products->execute(array());
     </div>
 </div>
 <section class="divider_150px"><!-- extra space --></section>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Handle file input change event for adding a new product
+    $("#newProduct_image").change(function(){
+        var input = this;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // Update the image source for adding a new product
+                $("#newProductImage").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+});
+</script>
+
 <?php
 require_once("php/footer.php");
 addProductAdmin();

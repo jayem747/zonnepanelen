@@ -1,5 +1,6 @@
 <?php
 require_once("php/admin_header.php");
+require_once("php/admin_functions.php");
 
 $pdo = pdoObject("clearsky");
 $id = $_GET["productID"];
@@ -15,9 +16,10 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
     <section class="divider_50px"><!-- extra space --></section>
     <div class="two_sided_page">
         <section class="page_left_side">
-            <form>
-                <label for="name">Naam</label>
-                <input type="text" name="name" value="<?php echo $product["Titel"] ?>">
+            <form action="" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="<?= $_GET["productID"]?>">
+                <label for="naam">Naam</label>
+                <input type="text" id="naam" name="naam" value="<?php echo $product["Titel"] ?>">
                 <section class="divider_25px"><!-- extra space --></section>
                 <table>
                     <tr>
@@ -25,12 +27,12 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
                         <th></th>
                     </tr>
                     <tr>
-                        <td><label for="stock">Voorraad</label></td>
-                        <td><label for="price">Prijs</label></td>
+                        <td><label for="voorraad">Voorraad</label></td>
+                        <td><label for="prijs">Prijs</label></td>
                     </tr>
                     <tr class="close_input">
-                        <td><input type="number" name="stock" value="<?php echo $product["Voorraad"] ?>"></td>
-                        <td><input type="number" class="yellow_input" step=0.01 name="Prijs" value="<?php echo $product["Prijs"] ?>"></td>
+                        <td><input type="number" id="voorraad" name="voorraad" value="<?php echo $product["Voorraad"] ?>"></td>
+                        <td><input type="number" id="prijs" class="yellow_input" step=0.01 name="prijs" value="<?php echo $product["Prijs"] ?>"></td>
                     </tr>
                 </table>
                 <section class="divider_25px"><!-- extra space --></section>
@@ -42,8 +44,11 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
         </section>
         <section class="page_right_side">
             <p>Foto's</p>
-                <?php $base64_image = base64_encode($product["Foto"]) ?>
-                <img src="data:image/jpeg;base64,<?=$base64_image?>" class="form_img_product">
+                <?php $base64_image = base64_encode($product["Foto"]);
+                    $image_src = "data:image/jpeg;base64," . $base64_image;
+                ?>
+                <img id="uploadedImage" src="<?= $image_src ?>" class="form_img_product"><br>
+                <input type="file" id="product_image" name="product_image" accept="image/*">
                 <section class="divider_25px"><!-- extra space --></section>
                 <table class="double_buttons">
                     <tr>
@@ -56,12 +61,34 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
                     </tr>
                 </table>
                 <section class="divider_25px"><!-- extra space --></section>
-                <input type="submit" value="Wijzigingen bevestigen" class="submit_dark_blue">
+                <input type="submit" name="editProduct" value="Wijzigingen bevestigen" class="submit_dark_blue">
             </form>
         </section>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+$(document).ready(function(){
+    // Handle file input change event
+    $("#product_image").change(function(){
+        // Read the selected file
+        var input = this;
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                // Update the image source
+                $("#uploadedImage").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    });
+});
+</script>
+
 <section class="divider_150px"><!-- extra space --></section>
+
 <?php
 require_once("php/footer.php");
+editProductAdmin();
 ?>

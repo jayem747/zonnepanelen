@@ -1,8 +1,6 @@
 <?php
 require_once("php/header_login.php");
 require_once("php/login_functions.php");
-
-session_start();
 ?>
 
         <div class="main_content">
