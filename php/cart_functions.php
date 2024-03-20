@@ -103,8 +103,7 @@ function print_shopping_cart() {
     ?>
 
     <section class="divider_50px"><!-- extra space --></section>
-    <a href="payment.php" class="cart_buttons">Betaal</a>
-    <a href="#" class="cart_buttons">Afspraak</a>
+    <a href="afspraak.php" class="cart_buttons">Verder</a>
 <?php
 }
 
