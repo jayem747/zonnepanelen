@@ -138,8 +138,7 @@ function accountLogin() {
         $user = $stm->fetch();
 
         if(password_verify($_POST["password"], $user["Wachtwoord"])) {
-            $_SESSION["username"] = $user["Naam"];
-            $_SESSION["email"] = $user["Email"];
+            $_SESSION['KlantID'] = $user["KlantID"];
 
             // Check if the user is an admin
             $isAdmin = isAdmin($user["KlantID"]);
