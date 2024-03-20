@@ -5,9 +5,12 @@ $pdo = pdoObject("clearsky");
 $sql = "SELECT * FROM producten";
 $products = $pdo->prepare($sql);
 $products->execute(array());
+
+plus_and_minus_items();
 ?>
 
 <div class="main_content">
+    <?php var_dump($_SESSION);?>
     <section class="divider_50px"><!-- extra space --></section>
     <div class="two_sided_page">
         <section class="page_left_side">
