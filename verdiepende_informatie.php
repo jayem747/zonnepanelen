@@ -11,31 +11,52 @@ require_once("php/header.php");
     <!-- Include CSS stylesheets for the dashboard -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
     <style>
-        /* Define CSS styles for the dashboard layout */
         .container {
             display: flex;
             flex-wrap: wrap;
             justify-content: space-around;
-
         }
+
         .chart-container {
-            width: 45%;
-            margin-bottom: 20px;
+            margin-left: 30px;
+            width: 40%;
+            margin-bottom: 30px;
             border: 1px solid #ccc;
             padding: 10px;
+        }
+
+        .table-container {
+            margin-left: 30px;
+            width: 40%;
+            margin-bottom: 30px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 30px;
+        }
+
+        p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            margin-left: 17%;
         }
 
     </style>
 </head>
 <body>
+   
 <section class="divider_150px"><!-- space between ad and welcome section --></section>
-
+<p>Ontdek het krachtige resultaat van zonne-energie! Op deze pagina zie je het totale energieopwekkingsoverzicht van onze geïnstalleerde zonnepanelen per maand.
+    <br>Bekijk hoeveel groene energie we hebben geproduceerd en draag bij aan een duurzamere wereld.</p>
     <div class="container">
         <!-- Chart 1 -->
         <div class="chart-container">
-            <canvas id="chart1" width="400" height="300"></canvas>
+            <canvas id="chart1" width="800" height="750"></canvas>
+        </div>
+        <!-- Table 1 -->
+        <div class="table-container">
         </div>
     </div>
+
 
     <!-- Include Chart.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
@@ -87,13 +108,26 @@ require_once("php/header.php");
                                 text: 'hoeveel opgewekte energie'
                             },
                             suggestedMin: 0,
-                            suggestedMax: 200 // Adjust max value as needed
+                            suggestedMax: 200
                         }
                     }
                 }
             });
         }
         createChart('chart1', 'opgewekte energie', data1);
+
+        function createTable(data) {
+            let tableHTML = '<table border="1"><tr><th>Maand-Jaar</th><th>Opgewekte energie</th></tr>';
+            Object.keys(data).forEach(key => {
+                tableHTML += `<tr><td>${key}</td><td>${data[key]}</td></tr>`;
+            });
+            tableHTML += '</table>';
+            return tableHTML;
+        }
+
+        document.querySelector('.table-container').innerHTML = createTable(data1);
+
+
     </script>
 </body>
 </html>
