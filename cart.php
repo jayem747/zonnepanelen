@@ -12,7 +12,12 @@ $products->execute(array());
     <div class="two_sided_page">
         <section class="page_left_side">
             <?php
-                print_shopping_cart()
+            if(isset($_SESSION['cart']) ) {
+                print_shopping_cart();
+            }
+            else {
+                print("Uw winkelwagen is leeg");
+            }
             ?>
         </section>
         <section class="page_right_side">
