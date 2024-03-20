@@ -1,5 +1,9 @@
 <?php
 
+if (!isset($_SESSION['MESSAGE'])) {
+    $_SESSION["MESSAGE"] = '';
+}
+
 function pdoObject($dbname) {
     $servername = "localhost";
     $user = "root";
