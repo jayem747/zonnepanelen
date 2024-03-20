@@ -409,6 +409,21 @@ CONTENT
     z-index: -1;
 }
 
+/* For resolutions above 1440p */
+@media screen and (min-width: 1920px) {
+    .login_bg {
+        background-size: cover;
+    }
+}
+
+/* For resolutions equal to or below 1080p */
+@media screen and (max-width: 1920px) {
+    .login_bg {
+        background-size: auto;
+    }
+}
+
+
 .login_container {
     width: 50%;
     display: flex;
