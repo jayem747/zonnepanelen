@@ -42,7 +42,7 @@ function add_to_cart() {
         }    
     }
      if ($isNewItem && isset($_POST['ProductID']) && isset($_POST['amount']) ) {
-        array_push($_SESSION['cart'], ["ProductID" => $_POST['ProductID'], "amount" => $_POST['amount'] ]);
+        array_push($_SESSION['cart'], ["ProductID" => $_POST['ProductID'], "amount" => intval($_POST['amount']) ]);
         $_POST['ProductID'] = null;
         $_POST['amount'] = null;
         $isNewItem = false;
