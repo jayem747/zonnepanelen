@@ -1,5 +1,6 @@
 <?php
 include("php/database_function.php");
+session_start();
 
 if (isset($_GET["productID"])) {
     $productID = $_GET["productID"];
@@ -17,6 +18,7 @@ function deleteProduct($productID) {
     // Execute the statement
     $stmt->execute();
 
+    $_SESSION["MESSAGE"] = "Product is verwijderd";
     header("Location: home_admin.php");
 }
 

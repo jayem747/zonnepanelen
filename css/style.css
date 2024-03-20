@@ -515,6 +515,13 @@ CONTENT
     box-shadow: 3px 5px #e9c973;
 }
 
+.admin_message {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 24px;
+    color: #637ba0;
+}
+
 
 /* FORMS */
 
