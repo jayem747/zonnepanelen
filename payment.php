@@ -39,7 +39,7 @@ require_once("php/header.php");
                 <input type="text" id="postcode" name="postcode" placeholder="Postcode" required>
 
                 <br>
-                <input type="submit" value="Pay" name="payment_card" id="payment_card" class="credit_card_button">
+                <input type="submit" value="Betaal" name="payment_card" id="payment_card" class="credit_card_button">
             </form>
         </div>
 

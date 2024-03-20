@@ -133,7 +133,8 @@ function createAccount($email, $username, $password, $address, $postal_code) {
     $stmKlantInfo->bindParam(':klantID', $klantID);
     $stmKlantInfo->execute();
 
-    $_SESSION["KlantID"] = $klantID;
+    $_SESSION["KlantID"] = intval($klantID);
+
     return $klantID;
 }
 
