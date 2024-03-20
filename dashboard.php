@@ -44,8 +44,6 @@ require_once("php/header.php");
         return data;
     }
 
-
-        
     // Function to create a chart
     function createChart(canvasId, label, dataValues, maxValue) {
         const ctx = document.getElementById(canvasId).getContext('2d');
@@ -56,7 +54,7 @@ require_once("php/header.php");
                 datasets: [{
                     label: label,
                     data: Object.values(dataValues),
-                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderColor: '#637ba0',
                     borderWidth: 2,
                     fill: false
                 }]
