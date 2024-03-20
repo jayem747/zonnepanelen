@@ -2,6 +2,7 @@
 include("database_function.php");
 include("cart_functions.php");
 if (session_status() === PHP_SESSION_NONE) session_start();
+var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
