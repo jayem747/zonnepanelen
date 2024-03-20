@@ -404,7 +404,7 @@ CONTENT
 .login_bg {
     position: absolute;
     background-image: url("../img/login_bg_img.png");
-    background-size: cover;
+    background-size: auto;
     background-repeat: no-repeat;
     z-index: -1;
 }
@@ -420,7 +420,8 @@ CONTENT
 }
 
 .login_container input[type="text"],
-.login_container input[type="password"]  {
+.login_container input[type="password"], 
+.login_container input[type="email"] {
     width: 90%;
     height: 50px;
     background-color: #cad8de;
@@ -431,7 +432,8 @@ CONTENT
 }
 
 .login_container input[type="text"]::placeholder,
-.login_container input[type="password"]::placeholder {
+.login_container input[type="password"]::placeholder,
+.login_container input[type="email"]::placeholder {
     color: #637ba0;
     font-size: 24px;
 }

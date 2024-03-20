@@ -2,7 +2,7 @@
 require_once("php/header_login.php");
 require_once("php/login_functions.php");
 
-session_start();
+validateAccountRegistration();
 ?>
 
     <div class="main_content">
@@ -15,9 +15,15 @@ session_start();
             <!-- middle box -->
             <form class="login_container" method="post" action="">
                 <h1 class="blue_top_text">registreer</h1>
+                <?php
+                if (isset($_SESSION["MESSAGE"])) {
+                    echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+                    unset($_SESSION["MESSAGE"]);
+                }
+                ?>
                 <section class="divider_50px"><!-- divider --></section>
                 <input type="text" name="name" placeholder="Gebruikersnaam">
-                <input type="text" name="email" placeholder="Email">
+                <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password" placeholder="wachtwoord">
                 <input type="text" name="address" placeholder="adres">
                 <input type="text" name="postal_code" placeholder="postcode">
@@ -40,5 +46,4 @@ session_start();
 </html>
 
 <?php
-validateAccountRegistration()
 ?>

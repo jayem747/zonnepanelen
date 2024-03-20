@@ -14,7 +14,7 @@ require_once("php/login_functions.php");
                 <form class="login_container" method="post" action="">
                     <h1 class="blue_top_text">Log in</h1>
                     <section class="divider_50px"><!-- divider --></section>
-                    <input type="text" name="email" placeholder="E-mail">
+                    <input type="email" name="email" placeholder="E-mail">
                     <input type="password" name="password" placeholder="wachtwoord">
                     <input type="submit" name="login" value="Log in">
                     <a href="forgot_password.php">Wachtwoord vergeten?</a>

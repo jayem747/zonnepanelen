@@ -111,7 +111,6 @@ function print_shopping_cart() {
 
 function plus_and_minus_items() {
     if(isset($_GET["plus"])) {
-        // find where id
         foreach ($_SESSION['cart'] as $key => $item) {
             if($item["ProductID"] == $_GET['plus']) {
                 $_SESSION['cart'][$key]['amount']++;
@@ -119,14 +118,19 @@ function plus_and_minus_items() {
         }
     }
     if(isset($_GET["min"])) {
-        // find where id
-        echo("min");
         foreach ($_SESSION['cart'] as $key => $item) {
             if ($item["ProductID"] == $_GET['min'] && $item["amount"] >= 1) {
                 $_SESSION['cart'][$key]['amount']--;
             }
-            elseif ($item["ProductID"] == $_GET['min'] && $item["amount"] == 0) {
-                unset($item);
+        }
+    }
+}
+
+function delete_item() {
+    if(isset($_GET["min"])) {
+        foreach ($_SESSION['cart'] as $key => $item) {
+            if ($item["ProductID"] == $_GET['min'] && $item["amount"] == 0) {
+                unset($_SESSION['cart'][$key]);
             }
         }
     }

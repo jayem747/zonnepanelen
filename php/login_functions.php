@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 function pdoObject($dbname) {
     $servername = "localhost";
     $user = "root";
@@ -22,6 +22,20 @@ function validateData($data) {
     return $data;
   }
   
+function validationPostalCode($str) {
+    //postal code pattern
+    $pattern = '/^\d{4}[A-Z]{2}$/';
+
+        
+    if (preg_match($pattern, $str)) {
+        // postal code is valid
+        return true; 
+    } else {
+        // postal code is not valid
+        return false;
+    }
+}
+
   /* check all the fields */
   function validateAccountRegistration() {
   
@@ -55,32 +69,28 @@ function validateData($data) {
             $postal_code = "";
         }
         else {
-            $postal_code = validateData(($_POST["postal_code"]));
+            $postal_code = strtoupper(validateData(($_POST["postal_code"])) );
+            if (!validationPostalCode($postal_code)) {
+                $_SESSION["MESSAGE"] .= "Postcode is ongeldig<br>";
+            }
         }
           
         /* send error message when one of the fields is empty */
-        if (empty($email) || empty($username) || empty($password) ) {
-            session_destroy();
+        if (empty($email) || empty($username) || empty($password) || empty($address) || empty($postal_code) ) {
             if (empty($email) ) { 
-                ?>
-                <script>
-                    alert("Email is verplicht");
-                </script>
-                <?php
+                $_SESSION["MESSAGE"] .= "Email is verplicht<br>";
             }
             if (empty($username) ) { 
-                ?>
-                <script>
-                    alert("gebruikersnaam is verplicht");
-                </script>
-                <?php
+                $_SESSION["MESSAGE"] .= "Gebruikersnaam is verplicht<br>";
             }
             if (empty($password) ) { 
-                ?>
-                <script>
-                    alert("wachtwoord is verplicht");
-                </script>
-                <?php
+                $_SESSION["MESSAGE"] .= "Wachtwoord is verplicht<br>";
+            }
+            if (empty($address) ) { 
+                $_SESSION["MESSAGE"] .= "Adres is verplicht<br>";
+            }
+            if (empty($postal_code) ) { 
+                $_SESSION["MESSAGE"] .= "Postcode is verplicht<br>";
             }
         }
         // code that inserts comment
