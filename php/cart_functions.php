@@ -67,6 +67,8 @@ function shopping_cart() {
         }
         else {
             add_to_cart();
+            $_SESSION["MESSAGE"] = "Product is toegevoegd";
+            var_dump($_SESSION);
         }
     }
 }
@@ -93,7 +95,7 @@ function print_shopping_cart() {
                 <img src="data:image/jpeg;base64, <?=$base64_image?>" class="cart_product_img">
                 <section class="cart_product_info">
                     <h2><?=$products['Titel']?></h2>
-                    <p>aantal: <?=$item['amount']?></p>
+                    <p>aantal: <a href='cart.php?min=<?=$item['ProductID']?>'>-</a> <a href=""></a> <?=$item['amount']?> <a href='cart.php?plus=<?=$item['ProductID']?>'>+</a></p>
                     <p>totaal: €<?=number_format($priceProduct, 2, '.', '')?></p>
                 </section>
             </section>
@@ -105,6 +107,30 @@ function print_shopping_cart() {
     <section class="divider_50px"><!-- extra space --></section>
     <a href="afspraak.php" class="cart_buttons">Verder</a>
 <?php
+}
+
+function plus_and_minus_items() {
+    if(isset($_GET["plus"])) {
+        // find where id
+        foreach ($_SESSION['cart'] as $item) {
+            if($item["ProductID"] == $_GET['plus']) {
+                echo("plus");
+                $item['amount']++;
+            }
+        }
+    }
+    if(isset($_GET["min"])) {
+        // find where id
+        echo("min");
+        foreach ($_SESSION['cart'] as $item) {
+            if ($item["ProductID"] == $_GET['min'] && $item["amount"] >= 1) {
+                $item['amount']--;
+            }
+            elseif ($item["ProductID"] == $_GET['min'] && $item["amount"] == 0) {
+                unset($item);
+            }
+        }
+    }
 }
 
 ?>
