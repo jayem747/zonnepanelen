@@ -147,6 +147,10 @@ function accountLogin() {
             // Add the admin status to the session
             $_SESSION["admin"] = $isAdmin;
 
+            if ($isAdmin) {
+                header("location: home_admin.php");
+                exit();
+            }
             header("location: index.php");
             exit();
         } else {
