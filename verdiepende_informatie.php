@@ -35,18 +35,6 @@ require_once("php/header.php");
         <div class="chart-container">
             <canvas id="chart1" width="400" height="300"></canvas>
         </div>
-        <!-- Chart 2 -->
-        <div class="chart-container">
-            <canvas id="chart2" width="400" height="300"></canvas>
-        </div>
-        <!-- Chart 3 -->
-        <div class="chart-container">
-            <canvas id="chart3" width="400" height="300"></canvas>
-        </div>
-        <!-- Chart 4 -->
-        <div class="chart-container">
-            <canvas id="chart4" width="400" height="300"></canvas>
-        </div>
     </div>
 
     <!-- Include Chart.js library -->
