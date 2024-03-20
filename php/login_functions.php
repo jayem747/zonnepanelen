@@ -23,6 +23,8 @@ function validateData($data) {
   }
   
 function validationPostalCode($str) {
+
+    $str = str_replace(' ', '', $str);
     //postal code pattern
     $pattern = '/^\d{4}[A-Z]{2}$/';
 
@@ -69,8 +71,8 @@ function validationPostalCode($str) {
             $postal_code = "";
         }
         else {
-            $postal_code = strtoupper(validateData(($_POST["postal_code"])) );
-            if (!validationPostalCode($postal_code)) {
+            $postal_code = validateData(($_POST["postal_code"]));
+            if (!validationPostalCode( strtoupper($postal_code) ) ) {
                 $_SESSION["MESSAGE"] .= "Postcode is ongeldig<br>";
             }
         }
