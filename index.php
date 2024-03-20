@@ -8,6 +8,7 @@ $products->execute(array());
 ?>
 
 <div class="main_content">
+    <?php var_dump($_SESSION) ?>
     <div class="welcome">
         <h1>Welkom Bij</br>Clearsky Solar</h1>
         <p>uw partner in duurzame energieoplossingen</p>
