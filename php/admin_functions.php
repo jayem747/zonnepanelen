@@ -69,6 +69,7 @@ function editProductAdmin() {
         
         $stmt->execute();
 
+        $_SESSION["MESSAGE"] = "Product <b>" . $naam . "</b> aangepast";
         // Use JavaScript to redirect after the update
         echo '<script>window.location.href = "home_admin.php";</script>';
         exit();  // Ensure that no further code is executed after the redirection

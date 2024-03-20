@@ -1,5 +1,6 @@
 <?php
 require_once("php/admin_header.php");
+session_start();
 
 $pdo = pdoObject("clearsky");
 $sql = "SELECT * FROM producten";
@@ -10,6 +11,13 @@ $products->execute(array());
 <div class="main_content">
     <h1 class="blue_top_text">Bestaande producten</h1>
     <section class="divider_50px"><!-- divider --></section>
+
+    <?php 
+    if (isset($_SESSION["MESSAGE"])) {
+        echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+        unset($_SESSION["MESSAGE"]);
+    }
+    ?>
     <section id="products_grid">
         <?php
         foreach($products as $product) {
