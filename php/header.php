@@ -2,7 +2,6 @@
 include("database_function.php");
 include("cart_functions.php");
 if (session_status() === PHP_SESSION_NONE) session_start();
-var_dump($_SESSION);
 ?>
 <!DOCTYPE html>
 <html>
@@ -17,7 +16,7 @@ var_dump($_SESSION);
             <section class="header_left_side">
                 <a href="index.php"><img src="img/logo.png" alt="site_logo" class="site_logo"></a>
             </section>
-            <?php if(isset($_SESSION["username"])) { ?>
+            <?php if(isset($_SESSION["KlantID"])) { ?>
                 <section class="header_right_side">
                 <?php if(isset($_SESSION["admin"]) && $_SESSION["admin"] == true) { ?>
                     <a href="home_admin.php">Admin</a>
