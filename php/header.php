@@ -1,6 +1,7 @@
 <?php
 include("database_function.php");
 include("cart_functions.php");
+include("login_functions.php");
 if (session_status() === PHP_SESSION_NONE) session_start();
 ?>
 <!DOCTYPE html>

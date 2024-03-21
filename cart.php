@@ -8,6 +8,7 @@ $products->execute(array());
 
 plus_and_minus_items();
 delete_item();
+redirect_user();
 ?>
 
 <div class="main_content">

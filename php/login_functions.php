@@ -4,7 +4,7 @@ if (!isset($_SESSION['MESSAGE'])) {
     $_SESSION["MESSAGE"] = '';
 }
 
-function pdoObject($dbname) {
+function pdoObjectLogin($dbname) {
     $servername = "localhost";
     $user = "root";
     $pass = "";
@@ -107,7 +107,7 @@ function validationPostalCode($str) {
 }
 
 function createAccount($email, $username, $password, $address, $postal_code) {
-    $pdo = pdoObject("clearsky");
+    $pdo = pdoObjectLogin("clearsky");
 
     // Insert into "klant" table
     $sqlKlant = "INSERT INTO klant (Naam, Email, Wachtwoord, Adres, Postcode)
@@ -142,7 +142,7 @@ function createAccount($email, $username, $password, $address, $postal_code) {
 
 function accountLogin() {
     if(isset($_POST["login"])) {
-        $pdo = pdoObject("clearsky");
+        $pdo = pdoObjectLogin("clearsky");
         $sql = "SELECT * FROM klant WHERE Email = :email";
         $stm = $pdo->prepare($sql);
         $stm->bindParam(':email', $_POST["email"]);
@@ -162,6 +162,7 @@ function accountLogin() {
                 header("location: home_admin.php");
                 exit();
             }
+
             header("location: index.php");
             exit();
         } else {
@@ -176,7 +177,7 @@ function accountLogin() {
 
 // Function to check if the user is an admin
 function isAdmin($klantID) {
-    $pdo = pdoObject("clearsky");
+    $pdo = pdoObjectLogin("clearsky");
     $sql = "SELECT Admin FROM klantinfo WHERE klantID = :klantID";
     $stm = $pdo->prepare($sql);
     $stm->bindParam(':klantID', $klantID);
@@ -186,5 +187,13 @@ function isAdmin($klantID) {
     return $adminStatus == 1; // Assuming 1 represents admin, adjust if needed
 }
 
+function redirect_user() {
+    if(!isAdmin($_SESSION['KlantID'])) {
+
+    }
+    if (!isset($_SESSION['KlantID'])) {
+        header("Location: login.php");
+    }
+}
 
 ?>

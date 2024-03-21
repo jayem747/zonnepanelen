@@ -1,5 +1,7 @@
 <?php
 require_once("php/header.php");
+
+redirect_user();
 ?>
 
 <section class="divider_150px"><!-- space between ad and welcome section --></section>
@@ -28,33 +30,35 @@ require_once("php/header.php");
     <script>
 
         // Array of maximum values for each chart
-        const maxValues = [200, 150, 180, 170];
+        const maxValues = [300, 250, 30, 60];
+        const minValues = [100, 200, 10, 10];
 
     // Function to generate random data
-    function generateRandomData(maxValue) {
+    function generateRandomData(maxValue, minimum) {
         const data = {};
-        const months = ["04", "05", "06", "07", "08", "09", "10", "11", "12", "01", "02", "03"];
+        const months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
         const currentYear = new Date().getFullYear();
         
         for (let i = 0; i < months.length; i++) {
-            const key = `${months[i]}-${currentYear}`;
-            data[key] = Math.floor(Math.random() * maxValue) + 1; // Generating random number between 1 and 100
+            const key1 = `${months[i]}`;
+            data[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
         }
         
         return data;
     }
 
     // Function to create a chart
-    function createChart(canvasId, label, dataValues, maxValue) {
+    function createChart(canvasId, bar_type, label, dataValues, maxValue, minValue , y_descr, color_chart) {
         const ctx = document.getElementById(canvasId).getContext('2d');
         new Chart(ctx, {
-            type: 'line',
+            type: bar_type,
             data: {
                 labels: Object.keys(dataValues),
                 datasets: [{
                     label: label,
                     data: Object.values(dataValues),
-                    borderColor: '#637ba0',
+                    backgroundColor: color_chart[0],
+                    borderColor: color_chart[1],
                     borderWidth: 2,
                     fill: false
                 }]
@@ -65,17 +69,17 @@ require_once("php/header.php");
                         display: true,
                         title: {
                             display: true,
-                            text: 'Month-Year'
+                            text: 'Maand-Jaar'
                         }
                     },
                     y: {
                         display: true,
                         title: {
                             display: true,
-                            text: 'hoeveel opgewekte energie'
+                            text: y_descr
                         },
-                        suggestedMin: 0,
-                        suggestedMax: maxValue
+                        min: minValue,
+                        max: maxValue
                     }
                 }
             }
@@ -83,10 +87,10 @@ require_once("php/header.php");
     }
 
         // Create four charts with different data
-        createChart('chart1', 'opgewekte energie', generateRandomData(maxValues[0]), maxValues[0]);
-        createChart('chart2', 'opgewekte energie', generateRandomData(maxValues[1]), maxValues[1]);
-        createChart('chart3', 'opgewekte energie', generateRandomData(maxValues[2]), maxValues[2]);
-        createChart('chart4', 'opgewekte energie', generateRandomData(maxValues[3]), maxValues[3]);
+        createChart('chart1', 'line', 'Vermogen', generateRandomData(maxValues[0], minValues[0]), maxValues[0], minValues[0], "In watt", ["#cad8de", "#637ba0"]);
+        createChart('chart2', 'bar', 'Spanning', generateRandomData(maxValues[1], minValues[1]), maxValues[1], minValues[1], "In volt", ["#cad8de", "#637ba0"]);
+        createChart('chart3', 'bar', 'Opbrengst per kWh', generateRandomData(maxValues[2], minValues[2]), maxValues[2], minValues[2], "In eurocent", ["#fff3d0", "#e9c973"]);
+        createChart('chart4', 'line', 'Temperatuur', generateRandomData(maxValues[3], minValues[3]), maxValues[3], minValues[3], "In celcius", ["#fff3d0", "#e9c973"]);
     </script>
 </body>
 </html>
