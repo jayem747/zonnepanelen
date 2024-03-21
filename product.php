@@ -17,17 +17,17 @@ $dataFile = getProductId($productData);
     <section class="divider_50px"><!-- divider --></section>
 
     <?php
-    if (isset($_SESSION["MESSAGE"])) {
-        echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
-        unset($_SESSION["MESSAGE"]);
-    }
+        if (isset($_SESSION["MESSAGE"])) {
+            echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+            unset($_SESSION["MESSAGE"]);
+        }
     ?>
     <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>?productID=<?=$product['ProductID']?>">
         <section id="product_grid">
             <input type="hidden" name="ProductID" value="<?=$product['ProductID']?>">
             <section class="product_page_container">
                 <section class="">
-                    <img src="data:image/jpeg;base64, <?=$base64_image?>" class="product_image">
+                    <img src="data:image/jpeg;base64, <?=$base64_image?>" class="product_image" width="720px">
                 </section>
                 <br>
                 <h2>Specificaties:</h2>

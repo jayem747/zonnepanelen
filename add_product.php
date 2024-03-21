@@ -2,13 +2,16 @@
 require_once("php/admin_header.php");
 require_once("php/admin_functions.php");
 
-$pdo = pdoObject("clearsky");
-$sql = "SELECT * FROM producten";
-$products = $pdo->prepare($sql);
-$products->execute(array());
+addProductAdmin();
 ?>
 <div class="main_content">
     <h1 class="blue_top_text">Product toevoegen</h1>
+    <?php
+        if (isset($_SESSION["MESSAGE"])) {
+            echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+            unset($_SESSION["MESSAGE"]);
+        }
+    ?>
     <section class="divider_50px"><!-- extra space --></section>
     <div class="two_sided_page">
         <section class="page_left_side">
@@ -41,7 +44,7 @@ $products->execute(array());
             <p>Foto's</p>
             <img id="newProductImage" src="img/NoPicture.jpeg" class="form_img_product"><br>
                 <br>
-                <input type="file" id="newProduct_image" name="product_image" accept="image/*">
+                <input type="file" id="newProduct_image" name="product_image" accept="image/png"><p>Max >1mb</p>
                 <section class="divider_25px"><!-- extra space --></section>
                 <section class="divider_25px"><!-- extra space --></section>
                 <input type="submit" name="addProduct" value="product toevoegen" class="submit_dark_blue">
@@ -71,5 +74,4 @@ $(document).ready(function(){
 
 <?php
 require_once("php/footer.php");
-addProductAdmin();
 ?>

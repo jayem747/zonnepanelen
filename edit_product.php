@@ -2,6 +2,8 @@
 require_once("php/admin_header.php");
 require_once("php/admin_functions.php");
 
+editProductAdmin();
+
 $pdo = pdoObject("clearsky");
 $id = $_GET["productID"];
 $sql = "SELECT * FROM producten WHERE ProductID = :id";
@@ -13,6 +15,12 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
 ?>
 <div class="main_content">
     <h1 class="blue_top_text">Bewerken product</h1>
+    <?php
+        if (isset($_SESSION["MESSAGE"])) {
+            echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+            unset($_SESSION["MESSAGE"]);
+        }
+    ?>
     <section class="divider_50px"><!-- extra space --></section>
     <div class="two_sided_page">
         <section class="page_left_side">
@@ -48,7 +56,7 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
                     $image_src = "data:image/jpeg;base64," . $base64_image;
                 ?>
                 <img id="uploadedImage" src="<?= $image_src ?>" class="form_img_product"><br>
-                <input type="file" id="product_image" name="product_image" accept="image/*">
+                <input type="file" id="product_image" name="product_image" accept="image/png"><p>Max >1mb</p>
                 <section class="divider_25px"><!-- extra space --></section>
                 <table class="double_buttons">
                     <tr>
@@ -90,5 +98,4 @@ $(document).ready(function(){
 
 <?php
 require_once("php/footer.php");
-editProductAdmin();
 ?>
