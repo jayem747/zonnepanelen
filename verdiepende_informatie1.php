@@ -43,7 +43,7 @@ require_once("php/header.php");
             margin-right: 30px;
             width: 40%;
             margin-bottom: 30px;
-            border: 1px solid #ccc;
+            border: 1px solid #637A9F;
             padding: 10px;
             height: 30%;
         }
@@ -57,22 +57,24 @@ require_once("php/header.php");
         }
 
         .table-container table td {
-            padding: 3px;
+            padding: 4px;
         }
 
 
         .table-container table tr:nth-child(odd) {
-            background-color: #fff; /* no background for odd rows */
+            background-color: #FFFAE9; /*background for odd rows */
         }
 
         .table-container table tr:nth-child(even) {
-            background-color: #FFFAE9; /*background for even rows */
+            background-color: #fff; /* no background for even rows */
         }
 
 
         .table-container table {
             width: 100%;
             font-size: 20px;
+            border-collapse: collapse;
+            border-color: #637A9F;
         }
 
         .table-container table tr:first-child {
@@ -97,7 +99,7 @@ require_once("php/header.php");
     <div class="container">
         <!-- Chart 1 -->
         <div class="chart-container">
-            <canvas id="chart1" width="800" height="430"></canvas>
+            <canvas id="chart1" width="800" height="435"></canvas>
         </div>
         <!-- Table 1 -->
         <div class="table-container">

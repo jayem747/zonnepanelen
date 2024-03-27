@@ -20,6 +20,8 @@ function pdoObjectLogin($dbname) {
 }
 
 function validateData($data) {
+    // Remove whitespace, slashes and special characters
+
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -27,9 +29,11 @@ function validateData($data) {
 }
   
 function validationPostalCode($str) {
-
+    // check if the postal code is valid
+    // remove whitespace from between the string
     $str = str_replace(' ', '', $str);
-    //postal code pattern
+
+    //postal code pattern 1234xx
     $pattern = '/^\d{4}[A-Z]{2}$/';
 
         
@@ -46,7 +50,8 @@ function validationPostalCode($str) {
   function validateAccountRegistration() {
   
     if(isset($_POST["register"])) {
-        /* checks if input is empty */
+        // check if the fields are empty
+
         if(empty(validateData($_POST["email"])) ) {
             $email = "";
         }
@@ -78,7 +83,7 @@ function validationPostalCode($str) {
             $postal_code = validateData(($_POST["postal_code"]));
         }
           
-        /* send error message when one of the fields is empty */
+        // gives the person an error message if one of the data is empty
         if (empty($email) || empty($username) || empty($password) || empty($address) || empty($postal_code || !validationPostalCode( strtoupper($postal_code)) ) ) {
             if (empty($email) ) { 
                 $_SESSION["MESSAGE"] .= "Email is verplicht<br>";
@@ -107,6 +112,8 @@ function validationPostalCode($str) {
 }
 
 function createAccount($email, $username, $password, $address, $postal_code) {
+    // make an account in the database
+
     $pdo = pdoObjectLogin("clearsky");
 
     // Insert into "klant" table
@@ -133,6 +140,7 @@ function createAccount($email, $username, $password, $address, $postal_code) {
     $stmKlantInfo->bindParam(':klantID', $klantID);
     $stmKlantInfo->execute();
 
+    // save the KlantID in the session
     $_SESSION["KlantID"] = intval($klantID);
 
     return $klantID;
@@ -141,6 +149,8 @@ function createAccount($email, $username, $password, $address, $postal_code) {
 
 
 function accountLogin() {
+    // login function
+
     if(isset($_POST["login"])) {
         $pdo = pdoObjectLogin("clearsky");
         $sql = "SELECT * FROM klant WHERE Email = :email";
@@ -149,11 +159,14 @@ function accountLogin() {
         $stm->execute();
         $user = $stm->fetch();
 
+        // check if one of the fields is empty
         if (empty($_POST["password"]) || empty($_POST["email"]) ) {
             header("Refresh: 0");
             $_SESSION["MESSAGE"] = "Vul alle velden in<br>";
         }
         else {
+            // checks if the password is correct
+
             if(password_verify($_POST["password"], $user["Wachtwoord"])) {
                 $_SESSION['KlantID'] = $user["KlantID"];
 
@@ -163,18 +176,20 @@ function accountLogin() {
                 // Add the admin status to the session
                 $_SESSION["admin"] = $isAdmin;
 
+                // send non admins to the index page and admins to the admin page
                 if ($_SESSION["admin"] == false) {
                     print("no admin");
                     header("Refresh: 0; url=index.php");
                     exit();
                 }
-
                 if ($_SESSION["admin"] == true) {
                     print("admin");
                     header("Refresh: 0; url=home_admin.php");
                     exit();
                 }
             } else {
+                // gives an error message if the email or password is incorrect
+
                 header("Refresh: 0");
                 $_SESSION["MESSAGE"] .= "Het email of wachtwoord is onjuist<br>";
             }
@@ -182,8 +197,10 @@ function accountLogin() {
     }
 }
 
-// Function to check if the user is an admin
+
 function isAdmin($klantID) {
+
+    // Function to check if the user is an admin
     $pdo = pdoObjectLogin("clearsky");
     $sql = "SELECT Admin FROM klantinfo WHERE klantID = :klantID";
     $stm = $pdo->prepare($sql);
@@ -191,10 +208,11 @@ function isAdmin($klantID) {
     $stm->execute();
     $adminStatus = $stm->fetchColumn();
 
-    return $adminStatus == 1; // Assuming 1 represents admin, adjust if needed
+    return $adminStatus == 1; // 1 represents the adminrole, else return nothing/false
 }
 
 function redirect_user() {
+    // sends the user to the login page if they are not logged in
     if (!isset($_SESSION['KlantID'])) {
         header("Location: login.php");
         exit();
@@ -202,6 +220,8 @@ function redirect_user() {
 }
 
 function redirect_no_admin() {
+    // sends the user to the index page if they are not an admin
+
     if($_SESSION["admin"] == false) {
         header("Location: index.php");
         exit();
