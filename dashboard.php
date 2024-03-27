@@ -9,19 +9,19 @@ redirect_user();
     <div class="dashboard-container">
         <!-- Chart 1 -->
         <div class="dashboard-chart-container">
-            <canvas id="chart1" width="400" height="300"></canvas>
+            <canvas id="chart1" width="450" height="350"></canvas>
         </div>
         <!-- Chart 2 -->
         <div class="dashboard-chart-container">
-            <canvas id="chart2" width="400" height="300"></canvas>
+            <canvas id="chart2" width="450" height="350"></canvas>
         </div>
         <!-- Chart 3 -->
         <div class="dashboard-chart-container">
-            <canvas id="chart3" width="400" height="300"></canvas>
+            <canvas id="chart3" width="450" height="350"></canvas>
         </div>
         <!-- Chart 4 -->
         <div class="dashboard-chart-container">
-            <canvas id="chart4" width="400" height="300"></canvas>
+            <canvas id="chart4" width="450" height="350"></canvas>
         </div>
     </div>
 

@@ -822,13 +822,14 @@ section.page_right_side .double_buttons {
 .dashboard-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-
+    justify-content: center; /* Center items horizontally */
 }
 
 .dashboard-chart-container {
-    width: 45%;
+    width: 40%;
     margin-bottom: 20px;
+    margin-left: 10px; /* Add left margin */
+    margin-right: 10px; /* Add right margin */
     border: 1px solid #ccc;
     padding: 10px;
 }
