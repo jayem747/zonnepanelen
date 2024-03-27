@@ -103,15 +103,6 @@ function editProductAdmin() {
         $specificaties = $_POST["specificaties"];
         $omschrijving = $_POST["omschrijving"];
 
-        if(isset($_FILES['product_image'])) {
-            $file_size_kb = $_FILES['product_image']['size'] / 1024;
-            if ($file_size_kb > 1024) {
-                $_SESSION["MESSAGE"] = "Bestand is te groot (max 1mb)"; // Set error message
-                echo '<script>window.location.href = "edit_product.php?productID=' . $id . '";</script>'; // Redirect back to the edit product page
-                exit();
-            }
-        }
-
         // Check if a new image is uploaded
         if (isset($_FILES["product_image"]) && $_FILES["product_image"]["error"] == UPLOAD_ERR_OK) {
             $image = file_get_contents($_FILES["product_image"]["tmp_name"]);
@@ -169,6 +160,14 @@ function editProductAdmin() {
             }
             if (empty($omschrijving)) {
                 $_SESSION["MESSAGE"] .= "Omschrijving is verplicht<br>";
+            }
+            if(isset($_FILES['product_image'])) {
+                $file_size_kb = $_FILES['product_image']['size'] / 1024;
+                if ($file_size_kb > 1024) {
+                    $_SESSION["MESSAGE"] .= "Bestand is te groot (max 1mb)"; // Set error message
+                    echo '<script>window.location.href = "edit_product.php?productID=' . $id . '";</script>'; // Redirect back to the edit product page
+                    exit();
+                }
             }
         } else {
             // Update the data in the database

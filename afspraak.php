@@ -1,5 +1,6 @@
 <?php
 require_once("php/header.php");
+require_once("php/database_function.php");
 ?>
 
 <div class="main_content">
@@ -9,8 +10,17 @@ require_once("php/header.php");
             <h2>Totaalprijs: €XXX</h2>
         </div>
 
+        <script>
+            const date = new Date();
+
+            let day = date.getDate();
+            let month = date.getMonth() + 1;
+            let year = date.getFullYear();
+        </script>
+        
+
         <div class="middle_grid">
-            <form class="payment_form" action="payment.php">
+            <form class="payment_form" action="payment.php" method="post">
                 <input type="text" id="fullName" name="fullName" placeholder="Volledige Naam" required>
 
                 <br>
@@ -29,8 +39,19 @@ require_once("php/header.php");
         <div class="right_grid">
             <h3>Uw items:</h3>
             <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
+                <?php
+                    $pdo = pdoObjectLogin("clearsky");
+
+                    foreach($_SESSION["cart"] as $product) {
+                        $sql = "SELECT * FROM producten WHERE ProductID = :productID";
+                        $stm = $pdo->prepare($sql);
+                        $stm->bindParam(":productID", $product["ProductID"]);
+                        $stm->execute();
+                        $productDB = $stm->fetch();
+                    
+                        echo "<li>" . $productDB["Titel"] . "<br>Aantal: " . $product["amount"] . " - Prijs: " . ($productDB["Prijs"] * $product["amount"]) . "</li>";
+                    }
+                ?>
             </ul>
         </div>
     </div>

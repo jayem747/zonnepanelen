@@ -248,6 +248,17 @@ CONTENT
     padding: 20px 90px;
 }
 
+.succes_message {
+    text-align: center;
+    font-size: 24px;
+    margin-top: 25px;
+    max-width: 512px;
+    border: 3px solid #270;
+    background-color: #baed62;
+    color: #270;
+    border-radius: 10px;
+}
+
 /* ADVERTISEMENTS */
 
 .horizontal_ad {

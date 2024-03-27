@@ -1,5 +1,7 @@
 <?php
 require_once("php/header.php");
+require_once("php/payment_function.php");
+payment();
 ?>
 
 <div class="main_content">
@@ -13,7 +15,17 @@ require_once("php/header.php");
             <button class="ideal_button">iDeal</button>
             <p class="pay_with_card">Betaal met kaart</p>
             <br>
-            <form class="payment_form">
+            <form class="payment_form" method="post">
+            <?php
+                if (isset($_SESSION["MESSAGE"])) {
+                    echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+                    unset($_SESSION["MESSAGE"]);
+                }
+            ?>
+                <input type="hidden" id="fullName" name="fullName" value="<?php echo $_POST["fullName"]; ?>">
+                <input type="hidden" id="phoneNumber" name="phoneNumber" value="<?php echo $_POST["phoneNumber"]; ?>">
+                <input type="hidden" id="afspraak" name="afspraak" value="<?php echo $_POST["afspraak"]; ?>">
+
                 <input type="email" id="email" name="email" placeholder="Email" required>
 
                 <label for="card_number">Kaartgegevens:</label>
@@ -25,7 +37,7 @@ require_once("php/header.php");
                         <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/JJ" required>
                     </div>
                     <div class="card_detail_item">
-                        <input type="text" id="cvc" name="cvc" placeholder="CVC" required>
+                        <input type="number" id="cvc" name="cvc" placeholder="CVC" required>
                     </div>
                 </div>
 

@@ -13,6 +13,12 @@ $products->execute(array());
         <p>uw partner in duurzame energieoplossingen</p>
     </div>
     <section class="divider_50px"><!-- space between ad and welcome section --></section>
+    <?php
+        if (isset($_SESSION["succes"])) {
+            echo "<p class='succes_message'>" . $_SESSION["succes"] . "</p><br>";
+            unset($_SESSION["succes"]);
+        }
+    ?>
     <section class="horizontal_ad">
         advertentie
     </section>
