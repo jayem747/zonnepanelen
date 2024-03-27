@@ -1,5 +1,8 @@
 <?php
 include("database_function.php");
+include("login_functions.php");
+var_dump($_SESSION);
+redirect_user();
 ?>
 <!DOCTYPE html>
 <html>

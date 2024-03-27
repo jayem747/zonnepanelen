@@ -34,19 +34,25 @@ function check_if_item_is_in_cart() {
 
 function add_to_cart() {
     $isNewItem = true;
-    foreach ($_SESSION['cart'] as $item) {
-        if (isset($item['ProductID']) && $item['ProductID'] == $_POST['ProductID']) {
-            $item['amount'] += intval($_POST['amount']);
+
+    if (isset($_SESSION['KlantID'])) {
+        foreach ($_SESSION['cart'] as $item) {
+            if (isset($item['ProductID']) && $item['ProductID'] == $_POST['ProductID']) {
+                $item['amount'] += intval($_POST['amount']);
+                $isNewItem = false;
+                break;
+            }    
+        }
+        if ($isNewItem && isset($_POST['ProductID']) && isset($_POST['amount']) ) {
+            array_push($_SESSION['cart'], ["ProductID" => $_POST['ProductID'], "amount" => intval($_POST['amount']) ]);
+            $_POST['ProductID'] = null;
+            $_POST['amount'] = null;
             $isNewItem = false;
-            break;
-        }    
+            
+        }
     }
-     if ($isNewItem && isset($_POST['ProductID']) && isset($_POST['amount']) ) {
-        array_push($_SESSION['cart'], ["ProductID" => $_POST['ProductID'], "amount" => intval($_POST['amount']) ]);
-        $_POST['ProductID'] = null;
-        $_POST['amount'] = null;
-        $isNewItem = false;
-        
+    else {
+        header("Location: login.php");
     }
 }
 

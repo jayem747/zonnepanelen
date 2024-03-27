@@ -159,6 +159,7 @@ function accountLogin() {
             $_SESSION["admin"] = $isAdmin;
 
             if ($isAdmin) {
+                $_SESSION['KlantID'] = $user["KlantID"];
                 header("location: home_admin.php");
                 exit();
             }
@@ -188,12 +189,12 @@ function isAdmin($klantID) {
 }
 
 function redirect_user() {
-    if(!isAdmin($_SESSION['KlantID'])) {
-
-    }
-    if (!isset($_SESSION['KlantID'])) {
-        header("Location: login.php");
-    }
+    // if($_SESSION["admin"] == true) {
+    //     header("Location: index.php");
+    // }
+    // if (!isset($_SESSION['KlantID'])) {
+    //     header("Location: login.php");
+    // }
 }
 
 ?>

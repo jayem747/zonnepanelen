@@ -4,6 +4,7 @@ require_once("php/login_functions.php");
 ?>
 
         <div class="main_content">
+            <?php var_dump($_SESSION) ?>
             <div class="login_formation">
                 <!-- Left ad -->
                 <section class="vertical_ad">
