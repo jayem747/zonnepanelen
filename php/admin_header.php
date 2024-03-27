@@ -19,10 +19,13 @@ redirect_no_admin();
             </section>
             <h3 class="admin_header_text">Welkom admin</h3>
             <section class="header_right_side admin_right_side">
-                <a href="add_product.php">Product toevoegen</a>
-                <a href="admin_afspraken.php">Afspraken</a>
-                <a href="index.php">Index</a>
+            <a href="add_product.php">Product toevoegen</a>
+                <a href="index.php">Naar homepage</a>
             </section>
+        </div>
+        <div id="header_bot_layer">
+            <a href="home_admin.php">Alle producten</a>
+            <a href="admin_afspraken.php">Afspraken</a>
         </div>
     </header>
     <body>
