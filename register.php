@@ -9,12 +9,12 @@ validateAccountRegistration();
         <div class="login_formation">
             <!-- Left ad -->
             <section class="vertical_ad">
-                advertentie
+                Advertentie
             </section>
 
             <!-- middle box -->
             <form class="login_container" method="post" action="">
-                <h1 class="blue_top_text">registreer</h1>
+                <h1 class="blue_top_text">Registreer</h1>
                 <?php
                 if (isset($_SESSION["MESSAGE"])) {
                     echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
@@ -24,16 +24,16 @@ validateAccountRegistration();
                 <section class="divider_50px"><!-- divider --></section>
                 <input type="text" name="name" placeholder="Gebruikersnaam">
                 <input type="email" name="email" placeholder="Email">
-                <input type="password" name="password" placeholder="wachtwoord">
-                <input type="text" name="address" placeholder="adres">
-                <input type="text" name="postal_code" placeholder="postcode">
+                <input type="password" name="password" placeholder="Wachtwoord">
+                <input type="text" name="address" placeholder="Adres">
+                <input type="text" name="postal_code" placeholder="Postcode">
                 <input type="submit" name="register" value="Registreer">
-                <a href="login.php">heeft u al een account? log hier in</a>
+                <a href="login.php">Heeft u al een account? log hier in</a>
             </form>
 
             <!-- Right ad -->
             <section class="vertical_ad">
-                advertentie
+                Advertentie
             </section>
         </div>
     </div>
