@@ -58,16 +58,6 @@ $product = $products->fetch(PDO::FETCH_ASSOC);
                 <img id="uploadedImage" src="<?= $image_src ?>" class="form_img_product"><br>
                 <input type="file" id="product_image" name="product_image" accept="image/png"><p>Max >1mb</p>
                 <section class="divider_25px"><!-- extra space --></section>
-                <table class="double_buttons">
-                    <tr>
-                        <th></th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td><input type="button" class="blue_button_left" value="Toevoegen"/></td>
-                        <td><input type="button" class="yellow_button_right" value="verwijderen"/></td>
-                    </tr>
-                </table>
                 <section class="divider_25px"><!-- extra space --></section>
                 <input type="submit" name="editProduct" value="Wijzigingen bevestigen" class="submit_dark_blue">
             </form>
