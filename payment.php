@@ -3,6 +3,7 @@ require_once("php/header.php");
 require_once("php/payment_function.php");
 require_once("php/database_function.php");
 payment();
+redirect_user();
 
 $pdo = pdoObjectLogin("clearsky");
 

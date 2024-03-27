@@ -29,7 +29,7 @@ redirect_user();
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
 
-        // Array of maximum values for each chart
+        // set maximum- and minimum value for each chart
         const maxValues = [300, 250, 30, 60];
         const minValues = [100, 200, 10, 10];
 
@@ -39,6 +39,7 @@ redirect_user();
         const months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
         const currentYear = new Date().getFullYear();
         
+        //generate a random data between the minimum- and maximum value for every month
         for (let i = 0; i < months.length; i++) {
             const key1 = `${months[i]}`;
             data[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
@@ -53,6 +54,7 @@ redirect_user();
         new Chart(ctx, {
             type: bar_type,
             data: {
+                // set label (months) and their y values
                 labels: Object.keys(dataValues),
                 datasets: [{
                     label: label,
