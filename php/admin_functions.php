@@ -21,12 +21,15 @@ function addProductAdmin() {
         $prijs = $_POST["prijs"];
         $specificaties = $_POST["specificaties"];
         $omschrijving = $_POST["omschrijving"];
+        
+        // Check if image can be uploaded
         if (isset($_FILES["product_image"]) && $_FILES["product_image"]["error"] == UPLOAD_ERR_OK) {
             $image = file_get_contents($_FILES["product_image"]["tmp_name"]); 
         } else {
             $image = file_get_contents("img/NoPicture.jpeg");
         }
 
+        // check if the data is empty
         if (empty(validateData_a($naam))) {
             $naam = "";
         } else {
@@ -57,6 +60,7 @@ function addProductAdmin() {
             $omschrijving = validateData_a($omschrijving);
         }
 
+        // Gives the person an error message if the data is empty
         if (empty($naam) || empty($voorraad) || empty($prijs) || empty($specificaties) || empty($omschrijving)) {
             if (empty($naam)) {
                 $_SESSION["MESSAGE"] .= "Naam is verplicht<br>";
@@ -115,6 +119,7 @@ function editProductAdmin() {
             $image = $oldImage['Foto'];
         }
 
+        // check if the data is empty
         if (empty(validateData_a($naam))) {
             $naam = "";
         } else {
@@ -144,7 +149,7 @@ function editProductAdmin() {
         } else {
             $omschrijving = validateData_a($omschrijving);
         }
-
+        // Gives the person an error message if the data is empty
         if (empty($naam) || empty($voorraad) || empty($prijs) || empty($specificaties) || empty($omschrijving)) {
             if (empty($naam)) {
                 $_SESSION["MESSAGE"] .= "Naam is verplicht<br>";
