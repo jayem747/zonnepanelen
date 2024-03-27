@@ -90,7 +90,9 @@ function addProductAdmin() {
             
             $stmt->execute();
 
-            echo "Product toegevoegd";
+            $_SESSION["MESSAGE"] = "Product <b>" . $naam . "</b> toegevoegd";
+            echo '<script>window.location.href = "home_admin.php";</script>';
+            exit();
         }
     }
 }
