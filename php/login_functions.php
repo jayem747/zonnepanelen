@@ -149,32 +149,35 @@ function accountLogin() {
         $stm->execute();
         $user = $stm->fetch();
 
-        if(password_verify($_POST["password"], $user["Wachtwoord"])) {
-            $_SESSION['KlantID'] = $user["KlantID"];
+        if (empty($_POST["password"]) || empty($_POST["email"]) ) {
+            header("Refresh: 0");
+            $_SESSION["MESSAGE"] = "Vul alle velden in<br>";
+        }
+        else {
+            if(password_verify($_POST["password"], $user["Wachtwoord"])) {
+                $_SESSION['KlantID'] = $user["KlantID"];
 
-            // Check if the user is an admin
-            $isAdmin = isAdmin($user["KlantID"]);
+                // Check if the user is an admin
+                $isAdmin = isAdmin($user["KlantID"]);
 
-            // Add the admin status to the session
-            $_SESSION["admin"] = $isAdmin;
+                // Add the admin status to the session
+                $_SESSION["admin"] = $isAdmin;
 
-            if ($_SESSION["admin"] == false) {
-                print("no admin");
-                header("Refresh: 0; url=index.php");
-                exit();
+                if ($_SESSION["admin"] == false) {
+                    print("no admin");
+                    header("Refresh: 0; url=index.php");
+                    exit();
+                }
+
+                if ($_SESSION["admin"] == true) {
+                    print("admin");
+                    header("Refresh: 0; url=home_admin.php");
+                    exit();
+                }
+            } else {
+                header("Refresh: 0");
+                $_SESSION["MESSAGE"] .= "Het email of wachtwoord is onjuist<br>";
             }
-
-            if ($_SESSION["admin"] == true) {
-                print("admin");
-                header("Refresh: 0; url=home_admin.php");
-                exit();
-            }
-        } else {
-            ?>
-            <script>
-                alert("Email of wachtwoord is onjuist");
-            </script>
-            <?php
         }
     }
 }
