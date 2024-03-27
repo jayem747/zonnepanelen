@@ -478,6 +478,7 @@ CONTENT
 
 
 /* ADMIN PAGE */
+
 .admin_price_and_stock_container,
 .admin_price_and_stock_container td {
     width: 100%;
@@ -550,6 +551,26 @@ CONTENT
     color: #637ba0;
 }
 
+/* ADMIN AFSPRAKEN */
+
+.afspraak_description {
+    height: 10px;
+}
+
+.product_container .afspraak_description {
+    height: 10px;
+    margin: 10px 5%;
+}
+
+.product_delete_bt_afspraken {
+    background-color: #637ba0;
+    color: #fff;
+    font-weight: bold;
+    float: left;
+    margin-left: 40%;
+    padding: 5px;
+    box-shadow: 5px 8px #e9c973;
+}
 
 /* FORMS */
 
