@@ -19,8 +19,8 @@ redirect_no_admin();
             </section>
             <h3 class="admin_header_text">Welkom admin</h3>
             <section class="header_right_side admin_right_side">
-            <a href="add_product.php">Product toevoegen</a>
-                <a href="index.php">Naar homepage</a>
+                <a href="add_product.php">Product toevoegen</a>
+                <a href="index.php">Homepagina</a>
             </section>
         </div>
         <div id="header_bot_layer">
