@@ -21,7 +21,7 @@ redirect_no_admin();
             <section class="header_right_side admin_right_side">
                 <a href="add_product.php">Product toevoegen</a>
                 <a href="#">Afspraken</a>
-                <a href="index.php">Index</a>
+                <a href="index.php">User</a>
             </section>
         </div>
     </header>
