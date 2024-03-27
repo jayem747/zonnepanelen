@@ -1,5 +1,7 @@
 <?php
 function pdoObjectCart($dbname) {
+    // Make a pdo connection
+
     $servername = "localhost";
     $user = "root";
     $pass = "";
@@ -13,9 +15,13 @@ function pdoObjectCart($dbname) {
     }
     return($conn);
 }
-//function to check if the size and id are inside the session
+
 function check_if_item_is_in_cart() {
+    //function to check if the size and id are inside the session
+
     $isNewItem = true;
+
+    // add the amount to the product with the same id
     foreach ($_SESSION['cart'] as &$item) {
         if ($item["ProductID"] == $_POST['ProductID']) {
             $item['amount'] += intval($_POST['amount']);
@@ -23,6 +29,8 @@ function check_if_item_is_in_cart() {
             break;
         }
     }
+
+    // add the product to the cart
     if ($isNewItem && isset($_POST['ProductID'])) {
         array_push($_SESSION["cart"], [ "ProductID" => $_POST['ProductID'], "amount" => intval($_POST["amount"]) ]);
         $_POST['ProductID'] = null;
@@ -32,32 +40,10 @@ function check_if_item_is_in_cart() {
         
 }
 
-function add_to_cart() {
-    $isNewItem = true;
 
-    if (isset($_SESSION['KlantID'])) {
-        foreach ($_SESSION['cart'] as $item) {
-            if (isset($item['ProductID']) && $item['ProductID'] == $_POST['ProductID']) {
-                $item['amount'] += intval($_POST['amount']);
-                $isNewItem = false;
-                break;
-            }    
-        }
-        if ($isNewItem && isset($_POST['ProductID']) && isset($_POST['amount']) ) {
-            array_push($_SESSION['cart'], ["ProductID" => $_POST['ProductID'], "amount" => intval($_POST['amount']) ]);
-            $_POST['ProductID'] = null;
-            $_POST['amount'] = null;
-            $isNewItem = false;
-            
-        }
-    }
-    else {
-        header("Location: login.php");
-    }
-}
-
-//function to create a session cart and uses checkifitemisincart function
 function shopping_cart() {
+
+    //When the add to cart button is clicked, the product will be added to the cart
     $pdo = pdoObjectCart("clearsky");
     if (isset($_POST["setInCart"]) && $_POST["action"] == "setInCart") {
         if (!isset($_SESSION["cart"]) ) {
@@ -65,16 +51,6 @@ function shopping_cart() {
         }
         else {
             check_if_item_is_in_cart();
-        }
-    }
-    if (isset($_POST["setInCart"]) && $_POST["action"] == "setInCart") {
-        if (!isset($_SESSION["cart"]) ) {
-            $_SESSION["cart"] = [];
-        }
-        else {
-            add_to_cart();
-            $_SESSION["MESSAGE"] = "Product is toegevoegd";
-            var_dump($_SESSION);
         }
     }
 }
@@ -88,12 +64,14 @@ function print_shopping_cart() {
     foreach ($_SESSION['cart'] as $item) {
         $stmt->bindParam(':ProductID', $item['ProductID']);
         $stmt->execute();
-
         $products = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // make the image useable
         $base64_image = base64_encode($products["Foto"]);
+
+        // calculate the prices
         $price = $products['Prijs'];
         $priceProduct = $price * $item['amount'];
-        
         $totalPrice += $priceProduct;
         if (isset($item['ProductID'])) {
             ?>
@@ -116,6 +94,8 @@ function print_shopping_cart() {
 }
 
 function plus_and_minus_items() {
+
+    // add 1 to the amount of the product
     if(isset($_GET["plus"])) {
         foreach ($_SESSION['cart'] as $key => $item) {
             if($item["ProductID"] == $_GET['plus']) {
@@ -123,6 +103,8 @@ function plus_and_minus_items() {
             }
         }
     }
+
+    // delete 1 from the amount of the product
     if(isset($_GET["min"])) {
         foreach ($_SESSION['cart'] as $key => $item) {
             if ($item["ProductID"] == $_GET['min'] && $item["amount"] >= 1) {
@@ -133,6 +115,8 @@ function plus_and_minus_items() {
 }
 
 function delete_item() {
+
+    // delete the product from the cart
     if(isset($_GET["min"])) {
         foreach ($_SESSION['cart'] as $key => $item) {
             if ($item["ProductID"] == $_GET['min'] && $item["amount"] == 0) {

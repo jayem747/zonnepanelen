@@ -16,6 +16,7 @@ function pdoObject($dbname) {
 
 
 function getProductId($product_id) {
+    // get the productID from the database to use for the product page
     $pdo = pdoObject("clearsky");
     $sql = "SELECT * FROM producten WHERE productID = :productID";
     $stmt = $pdo->prepare($sql);

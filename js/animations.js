@@ -17,7 +17,7 @@ CONTENT
 
 /* BUTTONS */
 const product_buttons = document.querySelectorAll(
-    ".product_container .view_product_button, .products_page_link, .product_delete_bt"
+    ".product_container .view_product_button, .products_page_link, .product_delete_bt, .product_delete_bt_afspraken"
 );
 
 const product_buttons_blue = document.querySelectorAll(
