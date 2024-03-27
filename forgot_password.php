@@ -1,5 +1,9 @@
 <?php
 require_once("php/header_login.php");
+if (isset($_POST["forgot_password"])) {
+    $_SESSION["MESSAGE"] = "Er is een email gestuurd naar " . $_POST["email"];
+    header("location: login.php");
+}
 ?>
     <div class="main_content">
         <div class="login_formation">
@@ -9,14 +13,14 @@ require_once("php/header_login.php");
             </section>
 
             <!-- middle box -->
-            <form class="login_container" method="post" action="login.php">
-                <h1 class="blue_top_text">Log in</h1>
-                <section class="divider_50px"><!-- divider --></section>
-                <input type="text" name="email" placeholder="email">
-                <input type="text" name="password" placeholder="nieuw wachtwoord">
-                <input type="submit" name="login" value="Verander wachtwoord">
-                <a href="login.php">terug naar login</a>
-                <a href="register.php">terug naar registreer</a>
+            <form class="login_container" method="post" action="">
+                <h1 class="blue_top_text">Forgot Password</h1>
+                <section class="divider_50px"><!-- divider --></section><br>
+                <input type="text" name="email" placeholder="Email">
+                <br><br>
+                <input type="submit" name="forgot_password" value="Stuur email">
+                <a href="login.php">Terug naar login</a>
+                <a href="register.php">Terug naar registreer</a>
             </form>
 
             <!-- Right ad -->
