@@ -1,6 +1,7 @@
 <?php
 require_once("php/header.php");
 require_once("php/database_function.php");
+redirect_user();
 ?>
 
 <div class="main_content">
