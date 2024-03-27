@@ -440,7 +440,7 @@ CONTENT
     display: flex;
     flex-direction: column;
     border: 1px solid black;
-    padding: 15px 0;
+    padding: 50px 0;
     border-radius: 5px;
     background-color: #fff;
 }
@@ -454,7 +454,8 @@ CONTENT
     color: #637ba0;
     margin-bottom: 50px;
     border: none;
-    border-radius: 5px;
+    border-radius: 20px;
+    font-size: 30px;
 }
 
 .login_container input[type="text"]::placeholder,
@@ -462,18 +463,20 @@ CONTENT
 .login_container input[type="email"]::placeholder {
     color: #637ba0;
     font-size: 24px;
+    padding: 15px;
 }
 
 .login_container input[type="submit"] {
     margin-bottom: 15px;
     width: 90%;
     height: 75px;
-    border-radius: 10px;
+    border-radius: 20px;
     border: none;
     font-size: 36px;
-    color: #e9c973;
+    color: white;
     background-color: #637ba0;
     cursor: pointer;
+    font-weight: bold;
 }
 
 
