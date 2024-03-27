@@ -43,7 +43,6 @@ $dataFile = getProductId($productData);
                     <input type="submit" name="setInCart" value="In winkelwagen">
                 </form>
             </section>
-            </form>
         </section>
     </form>
     <?php 
