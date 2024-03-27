@@ -33,8 +33,8 @@ if (session_status() === PHP_SESSION_NONE) session_start();
             <?php } ?>
         </div>
         <div id="header_bot_layer">
-            <a href="index.php">home</a>
-            <a href="dashboard.php">dashboard</a>
+            <a href="index.php">Home</a>
+            <a href="dashboard.php">Dashboard</a>
         </div>
     </header>
     <body>

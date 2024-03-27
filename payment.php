@@ -38,9 +38,9 @@ foreach($_SESSION["cart"] as $product) {
                     unset($_SESSION["MESSAGE"]);
                 }
             ?>
-                <input type="hidden" id="fullName" name="fullName" value="<?php echo $_POST["fullName"]; ?>">
-                <input type="hidden" id="phoneNumber" name="phoneNumber" value="<?php echo $_POST["phoneNumber"]; ?>">
-                <input type="hidden" id="afspraak" name="afspraak" value="<?php echo $_POST["afspraak"]; ?>">
+                <input type="hidden" id="fullName" name="fullName" value="<?php if (isset($_POST["fullName"])) { echo $_POST["fullName"]; } ?>">
+                <input type="hidden" id="phoneNumber" name="phoneNumber" value="<?php if (isset($_POST["phoneNumber"])) { echo $_POST["phoneNumber"]; } ?>">
+                <input type="hidden" id="afspraak" name="afspraak" value="<?php if (isset($_POST["afspraak"])) { echo $_POST["afspraak"]; } ?>">
 
                 <input type="email" id="email" name="email" placeholder="Email" required>
 
