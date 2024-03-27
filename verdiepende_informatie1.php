@@ -11,6 +11,28 @@ require_once("php/header.php");
     <!-- Include CSS stylesheets for the dashboard -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
     <style>
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 20vh; /* 20% of the viewport height */
+            background-image: url('img/solar-energy.jpg');
+            background-size: cover;
+            background-position: center;
+            margin-top: 5%;
+            margin-bottom: 2%;
+        }
+
+        .centered-text {
+            position: absolute;
+            top: 50%;
+            left: 33%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            width: 80%; 
+        }
+
         .container {
             display: flex;
             flex-wrap: wrap;
@@ -18,20 +40,44 @@ require_once("php/header.php");
         }
 
         .chart-container {
-            margin-left: 30px;
+            margin-right: 30px;
             width: 40%;
             margin-bottom: 30px;
             border: 1px solid #ccc;
             padding: 10px;
+            height: 30%;
         }
 
         .table-container {
             margin-left: 30px;
             width: 40%;
             margin-bottom: 30px;
-            border: 1px solid #ccc;
-            padding: 10px;
+            border: 10px #ccc;
             border-radius: 30px;
+        }
+
+        .table-container table td {
+            padding: 3px;
+        }
+
+
+        .table-container table tr:nth-child(odd) {
+            background-color: #fff; /* no background for odd rows */
+        }
+
+        .table-container table tr:nth-child(even) {
+            background-color: #FFFAE9; /*background for even rows */
+        }
+
+
+        .table-container table {
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .table-container table tr:first-child {
+            background-color: #C9D7DD;
+            padding: 10px;
         }
 
         p {
@@ -43,14 +89,15 @@ require_once("php/header.php");
     </style>
 </head>
 <body>
-   
-<section class="divider_150px"><!-- space between ad and welcome section --></section>
-<p>Ontdek het krachtige resultaat van zonne-energie! Op deze pagina zie je het totale energieopwekkingsoverzicht van onze geïnstalleerde zonnepanelen per maand.
-    <br>Bekijk hoeveel groene energie we hebben geproduceerd en draag bij aan een duurzamere wereld.</p>
+
+<div class="image-container">
+    <p class="centered-text">Ontdek het krachtige resultaat van zonne-energie! Op deze pagina zie je het totale energieopwekkingsoverzicht van onze geïnstalleerde zonnepanelen per maand. Bekijk hoeveel groene energie we hebben geproduceerd en draag bij aan een duurzamere wereld.</p>
+</div>
+
     <div class="container">
         <!-- Chart 1 -->
         <div class="chart-container">
-            <canvas id="chart1" width="800" height="750"></canvas>
+            <canvas id="chart1" width="800" height="430"></canvas>
         </div>
         <!-- Table 1 -->
         <div class="table-container">
@@ -61,7 +108,6 @@ require_once("php/header.php");
     <!-- Include Chart.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
-        // Sample data for each chart (replace this with your actual data)
         const data1 = {
             "04-2023": 35,
             "05-2023": 45,
@@ -117,7 +163,7 @@ require_once("php/header.php");
         createChart('chart1', 'opgewekte energie', data1);
 
         function createTable(data) {
-            let tableHTML = '<table border="1"><tr><th>Maand-Jaar</th><th>Opgewekte energie</th></tr>';
+            let tableHTML = '<table border="0"><tr><th>Maand-Jaar</th><th>Opgewekte energie</th></tr>';
             Object.keys(data).forEach(key => {
                 tableHTML += `<tr><td>${key}</td><td>${data[key]}</td></tr>`;
             });
