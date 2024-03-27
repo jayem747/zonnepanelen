@@ -4,7 +4,6 @@ require_once("php/login_functions.php");
 ?>
 
         <div class="main_content">
-            <?php var_dump($_SESSION) ?>
             <div class="login_formation">
                 <!-- Left ad -->
                 <section class="vertical_ad">
@@ -14,6 +13,12 @@ require_once("php/login_functions.php");
                 <!-- middle box -->
                 <form class="login_container" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
                     <h1 class="blue_top_text">Log in</h1>
+                    <?php
+                    if (isset($_SESSION["MESSAGE"])) {
+                        echo "<p class='admin_message'>" . $_SESSION["MESSAGE"] . "</p><br>";
+                        unset($_SESSION["MESSAGE"]);
+                    }
+                    ?>
                     <section class="divider_50px"><!-- divider --></section>
                     <input type="email" name="email" placeholder="E-mail">
                     <input type="password" name="password" placeholder="Wachtwoord">

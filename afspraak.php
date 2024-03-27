@@ -1,13 +1,14 @@
 <?php
 require_once("php/header.php");
 require_once("php/database_function.php");
+redirect_user();
 ?>
 
 <div class="main_content">
     <section class="divider_50px"><!-- divider --></section>
     <div class="payment_page_container">
         <div class="left_grid">
-            <h2>Totaalprijs: €XXX</h2>
+            
         </div>
 
         <script>

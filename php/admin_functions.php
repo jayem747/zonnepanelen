@@ -4,7 +4,7 @@ session_start();
 
 require_once "database_function.php";
 
-function validateData($data) {
+function validateData_a($data) {
     $data = trim($data);
     $data = stripslashes($data);
     $data = htmlspecialchars($data);
@@ -27,34 +27,34 @@ function addProductAdmin() {
             $image = file_get_contents("img/NoPicture.jpeg");
         }
 
-        if (empty(validateData($naam))) {
+        if (empty(validateData_a($naam))) {
             $naam = "";
         } else {
-            $naam = validateData($naam);
+            $naam = validateData_a($naam);
         }
 
-        if (empty(validateData($voorraad))) {
+        if (empty(validateData_a($voorraad))) {
             $voorraad = "";
         } else {
-            $voorraad = validateData($voorraad);
+            $voorraad = validateData_a($voorraad);
         }
 
-        if (empty(validateData($prijs))) {
+        if (empty(validateData_a($prijs))) {
             $prijs = "";
         } else {
-            $prijs = validateData($prijs);
+            $prijs = validateData_a($prijs);
         }
 
-        if (empty(validateData($specificaties))) {
+        if (empty(validateData_a($specificaties))) {
             $specificaties = "";
         } else {
-            $specificaties = validateData($specificaties);
+            $specificaties = validateData_a($specificaties);
         }
 
-        if (empty(validateData($omschrijving))) {
+        if (empty(validateData_a($omschrijving))) {
             $omschrijving = "";
         } else {
-            $omschrijving = validateData($omschrijving);
+            $omschrijving = validateData_a($omschrijving);
         }
 
         if (empty($naam) || empty($voorraad) || empty($prijs) || empty($specificaties) || empty($omschrijving)) {
@@ -115,34 +115,34 @@ function editProductAdmin() {
             $image = $oldImage['Foto'];
         }
 
-        if (empty(validateData($naam))) {
+        if (empty(validateData_a($naam))) {
             $naam = "";
         } else {
-            $naam = validateData($naam);
+            $naam = validateData_a($naam);
         }
 
-        if (empty(validateData($voorraad))) {
+        if (empty(validateData_a($voorraad))) {
             $voorraad = "";
         } else {
-            $voorraad = validateData($voorraad);
+            $voorraad = validateData_a($voorraad);
         }
 
-        if (empty(validateData($prijs))) {
+        if (empty(validateData_a($prijs))) {
             $prijs = "";
         } else {
-            $prijs = validateData($prijs);
+            $prijs = validateData_a($prijs);
         }
 
-        if (empty(validateData($specificaties))) {
+        if (empty(validateData_a($specificaties))) {
             $specificaties = "";
         } else {
-            $specificaties = validateData($specificaties);
+            $specificaties = validateData_a($specificaties);
         }
 
-        if (empty(validateData($omschrijving))) {
+        if (empty(validateData_a($omschrijving))) {
             $omschrijving = "";
         } else {
-            $omschrijving = validateData($omschrijving);
+            $omschrijving = validateData_a($omschrijving);
         }
 
         if (empty($naam) || empty($voorraad) || empty($prijs) || empty($specificaties) || empty($omschrijving)) {

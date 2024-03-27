@@ -1,14 +1,30 @@
 <?php
 require_once("php/header.php");
 require_once("php/payment_function.php");
+require_once("php/database_function.php");
 payment();
+redirect_user();
+
+$pdo = pdoObjectLogin("clearsky");
+
+$totaalPrijs = 0;
+
+foreach($_SESSION["cart"] as $product) {
+    $sql = "SELECT * FROM producten WHERE ProductID = :productID";
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(":productID", $product["ProductID"]);
+    $stm->execute();
+    $productDB = $stm->fetch();
+
+    $totaalPrijs += ($productDB["Prijs"] * $product["amount"]);
+}
 ?>
 
 <div class="main_content">
     <section class="divider_50px"><!-- divider --></section>
     <div class="payment_page_container">
         <div class="left_grid">
-            <h2>Totaalprijs: €XXX</h2>
+            <h2>Totaalprijs: €<?=$totaalPrijs?></h2>
         </div>
 
         <div class="middle_grid">
@@ -58,8 +74,17 @@ payment();
         <div class="right_grid">
             <h3>Uw items:</h3>
             <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
+                <?php
+                    foreach($_SESSION["cart"] as $product) {
+                        $sql = "SELECT * FROM producten WHERE ProductID = :productID";
+                        $stm = $pdo->prepare($sql);
+                        $stm->bindParam(":productID", $product["ProductID"]);
+                        $stm->execute();
+                        $productDB = $stm->fetch();
+                    
+                        echo "<li>" . $productDB["Titel"] . "<br>Aantal: " . $product["amount"] . " - Prijs: " . ($productDB["Prijs"] * $product["amount"]) . "</li>";
+                    }
+                ?>
             </ul>
         </div>
     </div>
