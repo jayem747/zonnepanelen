@@ -217,7 +217,9 @@ function redirect_user() {
         header("Location: login.php");
         exit();
     }
+}
 
+function redirect_user_cart() {
     if (!isset($_SESSION["cart"]) || empty($_SESSION["cart"])) {
         header("Location: index.php");
         exit();

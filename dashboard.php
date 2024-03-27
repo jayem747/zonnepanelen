@@ -94,9 +94,52 @@ redirect_user();
         createChart('chart3', 'bar', 'Opbrengst per kWh', generateRandomData(maxValues[2], minValues[2]), maxValues[2], minValues[2], "In eurocent", ["#fff3d0", "#e9c973"]);
         createChart('chart4', 'line', 'Temperatuur', generateRandomData(maxValues[3], minValues[3]), maxValues[3], minValues[3], "In celcius", ["#fff3d0", "#e9c973"]);
     </script>
-</body>
-</html>
 
-<?php
+    <section class="divider_50px"><!-- extra space --></section>
+    <h1 class="admin_message">Uw facturen</h1>
+    <br>
+    <?php 
+    require_once("php/database_function.php");
+    $pdo = pdoObjectLogin("clearsky");
+
+    $sql = "SELECT * FROM facturen WHERE klantID = :klantID";
+    $stm = $pdo->prepare($sql);
+    $stm->bindParam(":klantID", $_SESSION["KlantID"]);
+    $stm->execute();
+    $facturen = $stm->fetchAll();
+
+    if (isset($facturen)) {
+        echo "<div class='facturen-container'>";
+        foreach ($facturen as $factuur) {
+            $sql = "SELECT * FROM factuur_regel WHERE FactuurID = :factuurID";
+
+            $stm = $pdo->prepare($sql);
+            $stm->bindParam(":factuurID", $factuur["FactuurID"]);
+            $stm->execute();
+
+            $product = $stm->fetchAll();
+
+            $bedrag = 0;
+
+            foreach ($product as $product) {
+                $sql = "SELECT * FROM producten WHERE ProductID = :productID";
+                $stm = $pdo->prepare($sql);
+                $stm->bindParam(":productID", $product["ProductID"]);
+                $stm->execute();
+                $productDB = $stm->fetch();
+
+                $bedrag += ($productDB["Prijs"] * $product["Amount"]);
+            }
+
+            echo "<div class='factuur-stukjes'>";
+            echo "<h3>Factuur voor: " . $factuur["Naam"] . "</h3>";
+            echo "<p>Bedrag: €" . $bedrag . "</p>";
+            echo "<p>Datum: " . $factuur["Datum"] . "</p>";
+            echo "</div>";
+            echo "<br>";
+        }
+        echo "</div>";
+    }
+
 require_once("php/footer.php");
 ?>

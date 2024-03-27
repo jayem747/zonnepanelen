@@ -4,6 +4,7 @@ require_once("php/payment_function.php");
 require_once("php/database_function.php");
 payment();
 redirect_user();
+redirect_user_cart();
 
 $pdo = pdoObjectLogin("clearsky");
 

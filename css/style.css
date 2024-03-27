@@ -836,3 +836,20 @@ section.page_right_side .double_buttons {
     border: 1px solid #ccc;
     padding: 10px;
 }
+
+.facturen-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center items horizontally */
+    width: 50%;
+}
+
+.factuur-stukjes {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 10px; /* Add left margin */
+    margin-right: 10px; /* Add right margin */
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
