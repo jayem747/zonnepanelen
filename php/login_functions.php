@@ -158,14 +158,17 @@ function accountLogin() {
             // Add the admin status to the session
             $_SESSION["admin"] = $isAdmin;
 
-            if ($isAdmin) {
-                $_SESSION['KlantID'] = $user["KlantID"];
-                header("location: home_admin.php");
+            if ($_SESSION["admin"] == false) {
+                print("no admin");
+                header("Refresh: 0; url=index.php");
                 exit();
             }
 
-            header("location: index.php");
-            exit();
+            if ($_SESSION["admin"] == true) {
+                print("admin");
+                header("Refresh: 0; url=home_admin.php");
+                exit();
+            }
         } else {
             ?>
             <script>
@@ -189,12 +192,17 @@ function isAdmin($klantID) {
 }
 
 function redirect_user() {
-    // if($_SESSION["admin"] == true) {
-    //     header("Location: index.php");
-    // }
-    // if (!isset($_SESSION['KlantID'])) {
-    //     header("Location: login.php");
-    // }
+    if (!isset($_SESSION['KlantID'])) {
+        header("Location: login.php");
+        exit();
+    }
+}
+
+function redirect_no_admin() {
+    if($_SESSION["admin"] == false) {
+        header("Location: index.php");
+        exit();
+    }
 }
 
 ?>

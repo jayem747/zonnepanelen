@@ -1,6 +1,5 @@
 <?php
 require_once("php/admin_header.php");
-session_start();
 
 $pdo = pdoObject("clearsky");
 $sql = "SELECT * FROM producten";

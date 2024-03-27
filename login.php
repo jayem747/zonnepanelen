@@ -12,7 +12,7 @@ require_once("php/login_functions.php");
                 </section>
 
                 <!-- middle box -->
-                <form class="login_container" method="post" action="">
+                <form class="login_container" method="post" action="<?php echo $_SERVER["PHP_SELF"];?>">
                     <h1 class="blue_top_text">Log in</h1>
                     <section class="divider_50px"><!-- divider --></section>
                     <input type="email" name="email" placeholder="E-mail">
@@ -36,5 +36,5 @@ require_once("php/login_functions.php");
 </html>
 
 <?php
-accountLogin()
+accountLogin();
 ?>

@@ -1,8 +1,8 @@
 <?php
 include("database_function.php");
 include("login_functions.php");
-var_dump($_SESSION);
-redirect_user();
+if (session_status() === PHP_SESSION_NONE) session_start();
+redirect_no_admin();
 ?>
 <!DOCTYPE html>
 <html>
