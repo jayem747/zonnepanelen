@@ -263,12 +263,14 @@ CONTENT
 
 .horizontal_ad {
     width: 80%;
-    background-color: pink;
+    background-image: url("../img/horizontal ad.png");
+    background-size: contain;
     height: 150px;
 }
 
 .vertical_ad {
-    background-color: pink;
+    background-image: url("../img/vertical_ad.png");
+    background-size: cover;
     width: 250px;
     height: 500px;
 }
