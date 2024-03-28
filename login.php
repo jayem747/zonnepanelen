@@ -7,7 +7,7 @@ require_once("php/login_functions.php");
             <div class="login_formation">
                 <!-- Left ad -->
                 <section class="vertical_ad">
-                    advertentie
+                    <!-- advertentie -->
                 </section>
 
                 <!-- middle box -->
@@ -29,7 +29,7 @@ require_once("php/login_functions.php");
 
                 <!-- Right ad -->
                 <section class="vertical_ad">
-                    advertentie
+                    <!-- advertentie -->
                 </section>
             </div>
         </div>

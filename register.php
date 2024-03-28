@@ -9,7 +9,7 @@ validateAccountRegistration();
         <div class="login_formation">
             <!-- Left ad -->
             <section class="vertical_ad">
-                Advertentie
+                <!-- advertentie -->
             </section>
 
             <!-- middle box -->
@@ -33,7 +33,7 @@ validateAccountRegistration();
 
             <!-- Right ad -->
             <section class="vertical_ad">
-                Advertentie
+                <!-- advertentie -->
             </section>
         </div>
     </div>

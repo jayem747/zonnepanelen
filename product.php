@@ -50,7 +50,7 @@ $dataFile = getProductId($productData);
     ?>
     <section class="divider_50px"><!-- divider --></section>
     <section class="horizontal_ad">
-        advertentie
+        <!-- advertentie -->
     </section>
 </div>
 <section class="divider_150px"><!-- divider --></section>

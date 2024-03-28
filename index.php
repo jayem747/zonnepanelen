@@ -20,7 +20,7 @@ $products->execute(array());
         }
     ?>
     <section class="horizontal_ad">
-        advertentie
+        <!-- advertentie -->
     </section>
     <section class="divider_50px"><!-- space between ad and blue text --></section>
     <h1 class="blue_top_text">Onze pakketten</h1>
