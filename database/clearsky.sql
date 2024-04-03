@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 10:13 AM
+-- Generation Time: Apr 03, 2024 at 12:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -155,132 +155,16 @@ CREATE TABLE `producten` (
 -- Dumping data for table `producten`
 --
 
-
--- --------------------------------------------------------
-
---
--- Table structure for table `zonnepanelen`
---
-
-CREATE TABLE `zonnepanelen` (
-  `ZonnepaneelID` int(11) NOT NULL,
-  `KlantID` int(11) DEFAULT NULL,
-  `Stroomvoorziening` text DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `facturen`
---
-ALTER TABLE `facturen`
-  ADD PRIMARY KEY (`FactuurID`),
-  ADD KEY `KlantID` (`KlantID`);
-
---
--- Indexes for table `factuur_regel`
---
-ALTER TABLE `factuur_regel`
-  ADD PRIMARY KEY (`Factuurregel_id`),
-  ADD KEY `fk_factuur_regel_facturen` (`FactuurID`),
-  ADD KEY `fk_factuur_regel_producten` (`ProductID`);
-
---
--- Indexes for table `klant`
---
-ALTER TABLE `klant`
-  ADD PRIMARY KEY (`KlantID`);
-
---
--- Indexes for table `klantinfo`
---
-ALTER TABLE `klantinfo`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `KlantID` (`KlantID`);
-
---
--- Indexes for table `producten`
---
-ALTER TABLE `producten`
-  ADD PRIMARY KEY (`ProductID`);
-
---
--- Indexes for table `zonnepanelen`
---
-ALTER TABLE `zonnepanelen`
-  ADD PRIMARY KEY (`ZonnepaneelID`),
-  ADD KEY `KlantID` (`KlantID`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `facturen`
---
-ALTER TABLE `facturen`
-  MODIFY `FactuurID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
-
---
--- AUTO_INCREMENT for table `factuur_regel`
---
-ALTER TABLE `factuur_regel`
-  MODIFY `Factuurregel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `klant`
---
-ALTER TABLE `klant`
-  MODIFY `KlantID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
-
---
--- AUTO_INCREMENT for table `klantinfo`
---
-ALTER TABLE `klantinfo`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `producten`
---
-ALTER TABLE `producten`
-  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
---
--- AUTO_INCREMENT for table `zonnepanelen`
---
-ALTER TABLE `zonnepanelen`
-  MODIFY `ZonnepaneelID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `facturen`
---
-ALTER TABLE `facturen`
-  ADD CONSTRAINT `facturen_ibfk_1` FOREIGN KEY (`KlantID`) REFERENCES `klant` (`KlantID`);
-
---
--- Constraints for table `factuur_regel`
---
-ALTER TABLE `factuur_regel`
-  ADD CONSTRAINT `fk_factuur_regel_facturen` FOREIGN KEY (`FactuurID`) REFERENCES `facturen` (`FactuurID`),
-  ADD CONSTRAINT `fk_factuur_regel_producten` FOREIGN KEY (`ProductID`) REFERENCES `producten` (`ProductID`);
-
---
--- Constraints for table `klantinfo`
---
-ALTER TABLE `klantinfo`
-  ADD CONSTRAINT `klantinfo_ibfk_1` FOREIGN KEY (`KlantID`) REFERENCES `klant` (`KlantID`);
-
---
--- Constraints for table `zonnepanelen`
---
-ALTER TABLE `zonnepanelen`
-  ADD CONSTRAINT `zonnepanelen_ibfk_1` FOREIGN KEY (`KlantID`) REFERENCES `klant` (`KlantID`);
+INSERT INTO `producten` (`ProductID`, `Titel`, `Omschrijving`, `Prijs`, `Voorraad`, `Foto`, `Specificaties`) VALUES
+(1, 'Product 1', 'Description for Product 1', 100.00, 10, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 1'),
+(2, 'Product 2', 'Description for Product 2', 200.00, 20, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 2'),
+(3, 'Product 3', 'Description for Product 3', 100.00, 10, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 3'),
+(4, 'Product 4', 'Description for Product 4', 200.00, 20, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 4'),
+(5, 'Product 5', 'Description for Product 5', 900.00, 90, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 5'),
+(6, 'Product 6', 'Description for Product 6', 100.00, 10, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 6'),
+(7, 'Product 7', 'Description for Product 7', 200.00, 20, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 7'),
+(8, 'Product 8', 'Description for Product 8', 100.00, 10, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 8'),
+(9, 'Product 9', 'Description for Product 9', 900.00, 90, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 9');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
