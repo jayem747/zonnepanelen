@@ -2,93 +2,6 @@
 require_once("php/header.php");
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <!-- Include CSS stylesheets for the dashboard -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.css">
-    <style>
-
-        .image-container {
-            position: relative;
-            overflow-x: hidden;
-            width: 100.5vw;
-            height: 20vh; /* 20% of the viewport height */
-            background-image: url('img/solar-energy.jpg');
-            background-size: cover;
-            background-position: center;
-            transform: translateX(-90px);
-        }
-
-        .centered-text {
-            position: absolute;
-            top: 50%;
-            left: 33%;
-            transform: translate(-50%, -50%);
-            color: white;
-            text-align: center;
-            width: 80%; 
-        }
-
-        .container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-        }
-
-        .chart-container {
-            width: 50%;
-            border: 1px solid #637A9F;
-            padding: 10px;
-            height: 30%;
-        }
-
-        .table-container {
-            margin-left: 30px;
-            width: 40%;
-            margin-bottom: 30px;
-            border: 10px #ccc;
-            border-radius: 30px;
-        }
-
-        .table-container table td {
-            padding: 4px;
-        }
-
-
-        .table-container table tr:nth-child(odd) {
-            background-color: #FFFAE9; /*background for odd rows */
-        }
-
-        .table-container table tr:nth-child(even) {
-            background-color: #fff; /* no background for even rows */
-        }
-
-
-        .table-container table {
-            width: 100%;
-            font-size: 20px;
-            border-collapse: collapse;
-            border-color: #637A9F;
-        }
-
-        .table-container table tr:first-child {
-            background-color: #C9D7DD;
-            padding: 10px;
-        }
-
-        p {
-            font-size: 20px;
-            margin-bottom: 30px;
-            margin-left: 17%;
-        }
-
-    </style>
-</head>
-<body>
 <div class="main_content">
     <div class="image-container">
         <p class="centered-text">Ontdek het krachtige resultaat van zonne-energie! Op deze pagina zie je het totale energieopwekkingsoverzicht van onze geïnstalleerde zonnepanelen per maand. Bekijk hoeveel groene energie we hebben geproduceerd en draag bij aan een duurzamere wereld.</p>
@@ -102,6 +15,7 @@ require_once("php/header.php");
         </div>
         <!-- Table 1 -->
         <div class="table-container">
+            
         </div>
     </div>
 

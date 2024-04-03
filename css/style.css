@@ -855,3 +855,80 @@ section.page_right_side .double_buttons {
     padding: 10px;
     border-radius: 5px;
 }
+
+
+/* VERDIEPENDE INFORMATIE */
+
+.image-container {
+    position: relative;
+    overflow-x: hidden;
+    width: 100.5vw;
+    height: 20vh; /* 20% of the viewport height */
+    background-image: url('../img/solar-energy.jpg');
+    background-size: cover;
+    background-position: center;
+    transform: translateX(-90px);
+}
+
+.centered-text {
+    position: absolute;
+    top: 50%;
+    left: 33%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    width: 80%; 
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.chart-container {
+    width: 50%;
+    border: 1px solid #637A9F;
+    padding: 10px;
+    height: 30%;
+}
+
+.table-container {
+    margin-left: 30px;
+    width: 40%;
+    margin-bottom: 30px;
+    border: 10px #ccc;
+    border-radius: 30px;
+}
+
+.table-container table td {
+    padding: 4px;
+}
+
+
+.table-container table tr:nth-child(odd) {
+    background-color: #FFFAE9; /*background for odd rows */
+}
+
+.table-container table tr:nth-child(even) {
+    background-color: #fff; /* no background for even rows */
+}
+
+
+.table-container table {
+    width: 100%;
+    font-size: 20px;
+    border-collapse: collapse;
+    border-color: #637A9F;
+}
+
+.table-container table tr:first-child {
+    background-color: #C9D7DD;
+    padding: 10px;
+}
+
+p.centered-text {
+    font-size: 20px;
+    margin-bottom: 30px;
+    margin-left: 17%;
+}
