@@ -226,7 +226,6 @@ CONTENT
 .welcome {
     width: 100vw;
     overflow-x: hidden;
-    background-color: #fff3d0;
     text-align: center;
     height: 300px;
     display: flex;
@@ -236,8 +235,30 @@ CONTENT
     transform: translateX(-90px);
 }
 
+.welcome img {
+    width: 120vw;
+    overflow-x: hidden;
+    text-align: center;
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+    transform: translateX(-90px);
+}
+
+.overlay-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 25px;
+}
+
 .welcome h1 {
     font-size: 40px;
+    padding: 10px;
 }
 
 .solar_intro_text {

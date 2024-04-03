@@ -9,8 +9,11 @@ $products->execute(array());
 
 <div class="main_content">
     <div class="welcome">
-        <h1>Welkom Bij</br>Clearsky Solar</h1>
-        <p>uw partner in duurzame energieoplossingen</p>
+    <img src="img/solar-energy.jpg">
+        <div class="overlay-text">
+            <h1>Welkom Bij</br>Clearsky Solar</h1>
+            <p>uw partner in duurzame energieoplossingen</p>
+        </div>
     </div>
     <section class="divider_50px"><!-- space between ad and welcome section --></section>
     <?php
