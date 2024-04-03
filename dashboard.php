@@ -134,7 +134,7 @@ redirect_user();
             echo "<div class='factuur-stukjes'>";
             echo "<h3>Factuur voor: " . $factuur["Naam"] . "</h3>";
             echo "<p>Bedrag: €" . $bedrag . "</p>";
-            echo "<p>Datum: " . $factuur["Datum"] . "</p>";
+            echo "<p>Datum: " . date("d-m-Y", strtotime($factuur["Datum"])) . "</p>";
             echo "</div>";
             echo "<br>";
         }
