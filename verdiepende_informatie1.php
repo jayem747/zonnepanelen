@@ -138,48 +138,50 @@ require_once("php/header.php");
         return data;
     }
 
-        // Function to create a chart
-        function createChart(canvasId, bar_type, label, dataValues, maxValue, minValue , y_descr, color_chart) {
-            const ctx = document.getElementById(canvasId).getContext('2d');
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: Object.keys(dataValues),
-                    datasets: [{
-                        label: label,
-                        data: Object.values(dataValues),
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 2,
-                        fill: false
-                    }]
-                },
-                options: {
-                    devicePixelRatio: 4,
-                    scales: {
-                        x: {
+    // Function to create a chart
+    function createChart(canvasId, bar_type, label, dataValues, maxValue, minValue , y_descr, color_chart) {
+        const ctx = document.getElementById(canvasId).getContext('2d');
+        new Chart(ctx, {
+            type: bar_type,
+            data: {
+                // set label (months) and their y values
+                labels: Object.keys(dataValues),
+                datasets: [{
+                    label: label,
+                    data: Object.values(dataValues),
+                    backgroundColor: color_chart[0],
+                    borderColor: color_chart[1],
+                    borderWidth: 2,
+                    fill: false
+                }]
+            },
+            options: {
+                devicePixelRatio: 4,
+                scales: {
+                    x: {
+                        display: true,
+                        title: {
                             display: true,
-                            title: {
-                                display: true,
-                                text: 'Maand-Jaar'
-                            }
-                        },
-                        y: {
-                            display: true,
-                            title: {
-                                display: true,
-                                text: y_descr
-                            },
-                            suggestedMin: 0,
-                            suggestedMax: 200
+                            text: 'Maand-Jaar'
                         }
+                    },
+                    y: {
+                        display: true,
+                        title: {
+                            display: true,
+                            text: y_descr
+                        },
+                        min: minValue,
+                        max: maxValue
                     }
                 }
-            });
-        }
-        createChart('chart1', '<?= $_GET["type"] ?>', '<?= $_GET["naam"]?>', generateRandomData(<?= $_GET["max"] ?>, <?= $_GET["min"] ?>), <?= $_GET["max"] ?>, <?= $_GET["min"] ?>, '<?= $_GET["desc"] ?>', ["<?= $_GET["color1"] ?>", "<?= $_GET["color2"] ?>"]);
+            }
+        });
+    }
+        createChart('chart1', '<?= $_GET["type"] ?>', '<?= $_GET["naam"]?>', generateRandomData(<?= $_GET["max"] ?>, <?= $_GET["min"] ?>), <?= $_GET["max"] ?>, <?= $_GET["min"] ?>, '<?= $_GET["desc"] ?>', ['#<?= $_GET["color1"] ?>', '#<?= $_GET["color2"] ?>']);
 
         function createTable(data) {
-            let tableHTML = '<table border="0"><tr><th>Maand-Jaar</th><th>Opgewekte energie</th></tr>';
+            let tableHTML = '<table border="0"><tr><th>Maand-Jaar</th><th><?= $_GET["naam"] ?></th></tr>';
             Object.keys(data).forEach(key => {
                 tableHTML += `<tr><td>${key}</td><td>${data[key]}</td></tr>`;
             });

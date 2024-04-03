@@ -10,20 +10,22 @@ redirect_user();
         <!-- Chart 1 -->
         <div class="dashboard-chart-container">
             <canvas id="chart1" width="450" height="350"></canvas>
-            <a href="verdiepende_informatie1.php?naam=Vermogen&max=300&min=100&desc=In watt&type=Line&color1=#cad8de&color2=#637ba0" class="dashboard-link">Meer informatie</a>
+            <a href="verdiepende_informatie1.php?naam=Vermogen&max=300&min=100&desc=In watt&type=line&color1=cad8de&color2=637ba0" class="dashboard-link">Meer informatie</a>
         </div>
         <!-- Chart 2 -->
         <div class="dashboard-chart-container">
             <canvas id="chart2" width="450" height="350"></canvas>
-            <a href="verdiepende_informatie1.php?naam=Spanning&max=250&min=200" class="dashboard-link">Meer informatie</a>
+            <a href="verdiepende_informatie1.php?naam=Spanning&max=250&min=200&desc=In volt&type=bar&color1=cad8de&color2=637ba0" class="dashboard-link">Meer informatie</a>
         </div>
         <!-- Chart 3 -->
         <div class="dashboard-chart-container">
             <canvas id="chart3" width="450" height="350"></canvas>
+            <a href="verdiepende_informatie1.php?naam=Opbrengst per kWh&max=30&min=10&desc=In eurocent&type=bar&color1=fff3d0&color2=e9c973" class="dashboard-link">Meer informatie</a>
         </div>
         <!-- Chart 4 -->
         <div class="dashboard-chart-container">
             <canvas id="chart4" width="450" height="350"></canvas>
+            <a href="verdiepende_informatie1.php?naam=Temperatuur&max=60&min=10&desc=In celcius&type=line&color1=fff3d0&color2=e9c973" class="dashboard-link">Meer informatie</a>
         </div>
     </div>
 
