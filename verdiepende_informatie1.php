@@ -109,34 +109,20 @@ require_once("php/header.php");
     <!-- Include Chart.js library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
-        const data1 = {
-            "04-2023": 35,
-            "05-2023": 45,
-            "06-2023": 50,
-            "07-2023": 60,
-            "08-2023": 55,
-            "09-2023": 65,
-            "10-2023": 70,
-            "11-2023": 75,
-            "12-2023": 80,
-            "01-2024": 85,
-            "02-2024": 90,
-            "03-2024": 95
-        };
 
         function generateRandomData(maxValue, minimum) {
-        const data = {};
-        const months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
-        const currentYear = new Date().getFullYear();
-        
-        //generate a random data between the minimum- and maximum value for every month
-        for (let i = 0; i < months.length; i++) {
-            const key1 = `${months[i]}`;
-            data[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
+            const data = {};
+            const months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
+            const currentYear = new Date().getFullYear();
+            
+            //generate a random data between the minimum- and maximum value for every month
+            for (let i = 0; i < months.length; i++) {
+                const key1 = `${months[i]}`;
+                data[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
+            }
+            
+            return data;
         }
-        
-        return data;
-    }
 
     // Function to create a chart
     function createChart(canvasId, bar_type, label, dataValues, maxValue, minValue , y_descr, color_chart) {
@@ -189,7 +175,7 @@ require_once("php/header.php");
             return tableHTML;
         }
 
-        document.querySelector('.table-container').innerHTML = createTable(data1);
+        document.querySelector('.table-container').innerHTML = createTable(generateRandomData(<?= $_GET["max"] ?>, <?= $_GET["min"] ?>));
 
 
     </script>
