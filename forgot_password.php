@@ -9,7 +9,7 @@ if (isset($_POST["forgot_password"])) {
         <div class="login_formation">
             <!-- Left ad -->
             <section class="vertical_ad">
-                advertentie
+                <!-- advertentie -->
             </section>
 
             <!-- middle box -->
@@ -25,7 +25,7 @@ if (isset($_POST["forgot_password"])) {
 
             <!-- Right ad -->
             <section class="vertical_ad">
-                advertentie
+                <!-- advertentie -->
             </section>
         </div>
     </div>

@@ -14,13 +14,13 @@ require_once("php/header.php");
 
         .image-container {
             position: relative;
-            width: 100%;
+            overflow-x: hidden;
+            width: 100.5vw;
             height: 20vh; /* 20% of the viewport height */
             background-image: url('img/solar-energy.jpg');
             background-size: cover;
             background-position: center;
-            margin-top: 5%;
-            margin-bottom: 2%;
+            transform: translateX(-90px);
         }
 
         .centered-text {
@@ -40,9 +40,7 @@ require_once("php/header.php");
         }
 
         .chart-container {
-            margin-right: 30px;
-            width: 40%;
-            margin-bottom: 30px;
+            width: 50%;
             border: 1px solid #637A9F;
             padding: 10px;
             height: 30%;
@@ -91,15 +89,16 @@ require_once("php/header.php");
     </style>
 </head>
 <body>
-
-<div class="image-container">
-    <p class="centered-text">Ontdek het krachtige resultaat van zonne-energie! Op deze pagina zie je het totale energieopwekkingsoverzicht van onze geïnstalleerde zonnepanelen per maand. Bekijk hoeveel groene energie we hebben geproduceerd en draag bij aan een duurzamere wereld.</p>
-</div>
+<div class="main_content">
+    <div class="image-container">
+        <p class="centered-text">Ontdek het krachtige resultaat van zonne-energie! Op deze pagina zie je het totale energieopwekkingsoverzicht van onze geïnstalleerde zonnepanelen per maand. Bekijk hoeveel groene energie we hebben geproduceerd en draag bij aan een duurzamere wereld.</p>
+    </div>
+    <section class="divider_50px"><!-- divider --></section>
 
     <div class="container">
         <!-- Chart 1 -->
         <div class="chart-container">
-            <canvas id="chart1" width="800" height="435"></canvas>
+            <canvas id="chart1" width="650" height="350"></canvas>
         </div>
         <!-- Table 1 -->
         <div class="table-container">
@@ -177,8 +176,7 @@ require_once("php/header.php");
 
 
     </script>
-</body>
-</html>
+</div>
 
 <?php
 require_once("php/footer.php");
