@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2024 at 12:05 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Gegenereerd op: 03 apr 2024 om 12:19
+-- Serverversie: 10.4.28-MariaDB
+-- PHP-versie: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `facturen`
+-- Tabelstructuur voor tabel `facturen`
 --
 
 CREATE TABLE `facturen` (
@@ -39,7 +39,7 @@ CREATE TABLE `facturen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `facturen`
+-- Gegevens worden geëxporteerd voor tabel `facturen`
 --
 
 INSERT INTO `facturen` (`FactuurID`, `KlantID`, `Naam`, `Adres`, `Postcode`, `Email`, `Telefoonnummer`, `Datum`) VALUES
@@ -52,7 +52,7 @@ INSERT INTO `facturen` (`FactuurID`, `KlantID`, `Naam`, `Adres`, `Postcode`, `Em
 -- --------------------------------------------------------
 
 --
--- Table structure for table `factuur_regel`
+-- Tabelstructuur voor tabel `factuur_regel`
 --
 
 CREATE TABLE `factuur_regel` (
@@ -63,7 +63,7 @@ CREATE TABLE `factuur_regel` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `factuur_regel`
+-- Gegevens worden geëxporteerd voor tabel `factuur_regel`
 --
 
 INSERT INTO `factuur_regel` (`Factuurregel_id`, `FactuurID`, `ProductID`, `Amount`) VALUES
@@ -83,7 +83,7 @@ INSERT INTO `factuur_regel` (`Factuurregel_id`, `FactuurID`, `ProductID`, `Amoun
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klant`
+-- Tabelstructuur voor tabel `klant`
 --
 
 CREATE TABLE `klant` (
@@ -96,7 +96,7 @@ CREATE TABLE `klant` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `klant`
+-- Gegevens worden geëxporteerd voor tabel `klant`
 --
 
 INSERT INTO `klant` (`KlantID`, `Naam`, `Email`, `Wachtwoord`, `Adres`, `Postcode`) VALUES
@@ -112,7 +112,7 @@ INSERT INTO `klant` (`KlantID`, `Naam`, `Email`, `Wachtwoord`, `Adres`, `Postcod
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klantinfo`
+-- Tabelstructuur voor tabel `klantinfo`
 --
 
 CREATE TABLE `klantinfo` (
@@ -122,7 +122,7 @@ CREATE TABLE `klantinfo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `klantinfo`
+-- Gegevens worden geëxporteerd voor tabel `klantinfo`
 --
 
 INSERT INTO `klantinfo` (`id`, `KlantID`, `Admin`) VALUES
@@ -138,7 +138,7 @@ INSERT INTO `klantinfo` (`id`, `KlantID`, `Admin`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `producten`
+-- Tabelstructuur voor tabel `producten`
 --
 
 CREATE TABLE `producten` (
@@ -152,7 +152,7 @@ CREATE TABLE `producten` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `producten`
+-- Gegevens worden geëxporteerd voor tabel `producten`
 --
 
 INSERT INTO `producten` (`ProductID`, `Titel`, `Omschrijving`, `Prijs`, `Voorraad`, `Foto`, `Specificaties`) VALUES
@@ -165,6 +165,78 @@ INSERT INTO `producten` (`ProductID`, `Titel`, `Omschrijving`, `Prijs`, `Voorraa
 (7, 'Product 7', 'Description for Product 7', 200.00, 20, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 7'),
 (8, 'Product 8', 'Description for Product 8', 100.00, 10, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 8'),
 (9, 'Product 9', 'Description for Product 9', 900.00, 90, 0x696d672f736f6c61725f696d6167652e706e67, 'Specificaties for Product 9');
+
+--
+-- Indexen voor geëxporteerde tabellen
+--
+
+--
+-- Indexen voor tabel `facturen`
+--
+ALTER TABLE `facturen`
+  ADD PRIMARY KEY (`FactuurID`),
+  ADD KEY `KlantID` (`KlantID`);
+
+--
+-- Indexen voor tabel `factuur_regel`
+--
+ALTER TABLE `factuur_regel`
+  ADD PRIMARY KEY (`Factuurregel_id`),
+  ADD KEY `FactuurID` (`FactuurID`),
+  ADD KEY `ProductID` (`ProductID`);
+
+--
+-- Indexen voor tabel `klant`
+--
+ALTER TABLE `klant`
+  ADD PRIMARY KEY (`KlantID`);
+
+--
+-- Indexen voor tabel `klantinfo`
+--
+ALTER TABLE `klantinfo`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `KlantID` (`KlantID`);
+
+--
+-- Indexen voor tabel `producten`
+--
+ALTER TABLE `producten`
+  ADD PRIMARY KEY (`ProductID`);
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
+--
+
+--
+-- AUTO_INCREMENT voor een tabel `facturen`
+--
+ALTER TABLE `facturen`
+  MODIFY `FactuurID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT voor een tabel `factuur_regel`
+--
+ALTER TABLE `factuur_regel`
+  MODIFY `Factuurregel_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT voor een tabel `klant`
+--
+ALTER TABLE `klant`
+  MODIFY `KlantID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT voor een tabel `klantinfo`
+--
+ALTER TABLE `klantinfo`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT voor een tabel `producten`
+--
+ALTER TABLE `producten`
+  MODIFY `ProductID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
