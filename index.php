@@ -33,11 +33,11 @@ $products->execute(array());
     <section id="products_grid">
         <?php
         foreach($products as $product) {
-            $base64_image = base64_encode($product["Foto"])
+            $imagePath = $product["Foto"];
         ?>
         <section class="product_container">
             <section class="color_product_image">
-                <img src="data:image/jpeg;base64,<?=$base64_image?>" class="product_image">
+                <img src="<?=$imagePath?>" class="product_image">
             </section>
             <h2><?=$product["Titel"]?></h2>
             <p><?=$product["Omschrijving"]?></p>
