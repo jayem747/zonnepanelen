@@ -124,8 +124,22 @@ require_once("php/header.php");
             "03-2024": 95
         };
 
+        function generateRandomData(maxValue, minimum) {
+        const data = {};
+        const months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
+        const currentYear = new Date().getFullYear();
+        
+        //generate a random data between the minimum- and maximum value for every month
+        for (let i = 0; i < months.length; i++) {
+            const key1 = `${months[i]}`;
+            data[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
+        }
+        
+        return data;
+    }
+
         // Function to create a chart
-        function createChart(canvasId, label, dataValues) {
+        function createChart(canvasId, bar_type, label, dataValues, maxValue, minValue , y_descr, color_chart) {
             const ctx = document.getElementById(canvasId).getContext('2d');
             new Chart(ctx, {
                 type: 'line',
@@ -146,14 +160,14 @@ require_once("php/header.php");
                             display: true,
                             title: {
                                 display: true,
-                                text: 'Month-Year'
+                                text: 'Maand-Jaar'
                             }
                         },
                         y: {
                             display: true,
                             title: {
                                 display: true,
-                                text: 'hoeveel opgewekte energie'
+                                text: y_descr
                             },
                             suggestedMin: 0,
                             suggestedMax: 200
@@ -162,7 +176,7 @@ require_once("php/header.php");
                 }
             });
         }
-        createChart('chart1', 'opgewekte energie', data1);
+        createChart('chart1', '<?= $_GET["type"] ?>', '<?= $_GET["naam"]?>', generateRandomData(<?= $_GET["max"] ?>, <?= $_GET["min"] ?>), <?= $_GET["max"] ?>, <?= $_GET["min"] ?>, '<?= $_GET["desc"] ?>', ["<?= $_GET["color1"] ?>", "<?= $_GET["color2"] ?>"]);
 
         function createTable(data) {
             let tableHTML = '<table border="0"><tr><th>Maand-Jaar</th><th>Opgewekte energie</th></tr>';

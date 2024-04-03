@@ -10,10 +10,12 @@ redirect_user();
         <!-- Chart 1 -->
         <div class="dashboard-chart-container">
             <canvas id="chart1" width="450" height="350"></canvas>
+            <a href="verdiepende_informatie1.php?naam=Vermogen&max=300&min=100&desc=In watt&type=Line&color1=#cad8de&color2=#637ba0" class="dashboard-link">Meer informatie</a>
         </div>
         <!-- Chart 2 -->
         <div class="dashboard-chart-container">
             <canvas id="chart2" width="450" height="350"></canvas>
+            <a href="verdiepende_informatie1.php?naam=Spanning&max=250&min=200" class="dashboard-link">Meer informatie</a>
         </div>
         <!-- Chart 3 -->
         <div class="dashboard-chart-container">
