@@ -43,7 +43,7 @@ $facturen->execute(array());
                         $stm->bindParam(":productID", $regel["ProductID"]);
                         $stm->execute();
                         $product = $stm->fetch();
-                        echo "<p class='afspraak_description'>Titel: " . $product["Titel"] . "</p><p class='afspraak_description'>Aantal: " . $regel["Amount"] . " -  Prijs: " . ($product["Prijs"] * $regel["Amount"]) . "</p>";
+                        echo "<p class='afspraak_description'>Product Naam: " . $product["Titel"] . "</p><p class='afspraak_description'>Aantal: " . $regel["Amount"] . " -  Prijs: " . ($product["Prijs"] * $regel["Amount"]) . "</p>";
                     }
 
                 ?>
