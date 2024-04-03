@@ -66,6 +66,7 @@ redirect_user();
                 }]
             },
             options: {
+                devicePixelRatio: 4,
                 scales: {
                     x: {
                         display: true,

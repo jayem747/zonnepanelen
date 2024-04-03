@@ -140,6 +140,7 @@ require_once("php/header.php");
                     }]
                 },
                 options: {
+                    devicePixelRatio: 4,
                     scales: {
                         x: {
                             display: true,
