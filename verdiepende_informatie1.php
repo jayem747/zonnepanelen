@@ -110,19 +110,24 @@ require_once("php/header.php");
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
     <script>
 
-        function generateRandomData(maxValue, minimum) {
-            const data = {};
+    let sharedRandomData;
+        
+    function generateRandomData(maxValue, minimum) {
+        if (!sharedRandomData) {
+            sharedRandomData = {};
             const months = ["Jan.", "Feb.", "Mrt.", "Apr.", "Mei", "Jun.", "Jul.", "Aug.", "Sep.", "Okt.", "Nov.", "Dec."];
             const currentYear = new Date().getFullYear();
             
             //generate a random data between the minimum- and maximum value for every month
             for (let i = 0; i < months.length; i++) {
                 const key1 = `${months[i]}`;
-                data[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
+                sharedRandomData[key1] = Math.floor(Math.random() * (maxValue - minimum + 1)) + minimum;
             }
-            
-            return data;
         }
+        
+        return sharedRandomData;
+    }
+
 
     // Function to create a chart
     function createChart(canvasId, bar_type, label, dataValues, maxValue, minValue , y_descr, color_chart) {
@@ -175,7 +180,7 @@ require_once("php/header.php");
             return tableHTML;
         }
 
-        document.querySelector('.table-container').innerHTML = createTable(generateRandomData(<?= $_GET["max"] ?>, <?= $_GET["min"] ?>));
+        document.querySelector('.table-container').innerHTML = createTable(sharedRandomData);
 
 
     </script>
